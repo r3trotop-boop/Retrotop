@@ -3,264 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Unblocked Games | Premium Arcade</title>
+    <title>Dashboard</title>
     <style>
-        /* Smooth, Modern Global Settings */
+        /* Minimalist Modern Theme Layout */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            scroll-behavior: smooth;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            background-color: #0b0f19;
-            color: #f3f4f6;
-            display: flex;
+            background-color: #0a0a0c;
+            color: #ededed;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Artrex-Style Navigation Sidebar */
-        .sidebar {
-            width: 240px;
-            background-color: #111827;
-            border-right: 1px solid #1f2937;
-            padding: 25px 15px;
+        /* Top Clean Navigation Bar */
+        header {
+            background-color: #0a0a0c;
+            padding: 20px 40px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1f1f23;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        /* Functional Clean Search Container */
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-bar {
+            background-color: #121214;
+            border: 1px solid #1f1f23;
+            padding: 10px 18px;
+            border-radius: 6px;
+            width: 320px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .search-bar:focus {
+            border-color: #ffffff;
+            box-shadow: 0 0 0 1px #ffffff;
+        }
+
+        /* Core Content Grid */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 40px;
+        }
+
+        .section-header {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #707075;
+            margin-bottom: 25px;
+        }
+
+        /* Snappy Responsive Grid Setup */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 20px;
         }
 
-        .brand-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #38bdf8, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #9ca3af;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background-color: #1f2937;
-            color: #38bdf8;
-        }
-
-        /* Main Portal Dashboard Area */
-        .main-content {
-            flex: 1;
-            padding: 40px;
-            overflow-y: auto;
-        }
-
-        .hero-banner {
-            background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
-            border: 1px solid #3b0764;
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-banner h2 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .hero-banner p {
-            color: #9ca3af;
-            font-size: 1.1rem;
-        }
-
-        /* Clean Section Grid Header */
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #f3f4f6;
-            border-left: 4px solid #38bdf8;
-            padding-left: 12px;
-        }
-
-        /* Fluid Responsive Games Grid */
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        /* Ultra-Smooth Premium Game Card Layout */
+        /* Ultra-Clean Game Items (No Cringe Styling) */
         .game-card {
-            background-color: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 14px;
+            background-color: #121214;
+            border: 1px solid #1f1f23;
+            border-radius: 8px;
             overflow: hidden;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
-            text-decoration: none;
-            color: inherit;
-            /* Performance shortcut hardware acceleration */
-            will-change: transform, box-shadow, border-color;
-            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
-                        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
-                        border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, border-color;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.2s ease;
         }
 
-        /* Smooth Scale Hover Effect */
         .game-card:hover {
-            transform: translateY(-6px);
-            border-color: #38bdf8;
-            box-shadow: 0 12px 24px rgba(56, 189, 248, 0.15);
+            transform: translateY(-2px);
+            border-color: #44444a;
         }
 
-        /* Card Thumbnail/Emoji Shell */
-        .card-thumb {
+        .card-image-placeholder {
             height: 140px;
-            background: linear-gradient(45deg, #1f2937, #111827);
+            background-color: #16161a;
+            border-bottom: 1px solid #1f1f23;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
-            border-bottom: 1px solid #1f2937;
-            transition: background 0.2s ease;
+            color: #44444a;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .game-card:hover .card-thumb {
-            background: linear-gradient(45deg, #1e293b, #1e1b4b);
-        }
-
-        /* Inner Content Padding */
-        .card-body {
-            padding: 18px;
+        .card-details {
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            gap: 6px;
         }
 
         .game-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 6px;
+            font-size: 1.05rem;
+            font-weight: 600;
             color: #ffffff;
         }
 
-        .game-desc {
+        .game-description {
             font-size: 0.88rem;
-            color: #9ca3af;
+            color: #88888e;
             line-height: 1.4;
-            margin-bottom: 15px;
-            flex-grow: 1;
         }
 
-        /* Genre/Category Badges */
-        .tag-row {
+        /* The Premium Slide-Up Panel */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 100;
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-end;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
         }
 
-        .badge {
-            font-size: 0.75rem;
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .slide-panel {
+            width: 100%;
+            max-width: 1200px;
+            height: 90vh;
+            background-color: #0a0a0c;
+            border: 1px solid #1f1f23;
+            border-bottom: none;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .slide-panel {
+            transform: translateY(0);
+        }
+
+        .panel-menu {
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1f1f23;
+        }
+
+        .panel-title {
+            font-size: 1.1rem;
             font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #ffffff;
         }
 
-        .tag-horror { background-color: #7f1d1d; color: #fca5a5; }
-        .tag-arcade { background-color: #1e3a8a; color: #93c5fd; }
-        .tag-action { background-color: #36114d; color: #d8b4fe; }
+        .close-button {
+            background-color: #121214;
+            color: #ededed;
+            border: 1px solid #1f1f23;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.15s ease, border-color 0.15s ease;
+        }
 
-        /* Custom Responsive Adjustments */
-        @media (max-width: 768px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #1f2937; }
-            .main-content { padding: 20px; }
+        .close-button:hover {
+            background-color: #1c1c21;
+            border-color: #44444a;
+        }
+
+        .iframe-container {
+            flex: 1;
+            background-color: #000000;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Smoothly hide items that don't match the search */
+        .game-card.hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Artrex Side Nav -->
-    <div class="sidebar">
-        <div class="brand-title">RETRO ARCADE</div>
-        <a href="#" class="nav-link active">🔥 Popular Games</a>
-        <a href="#" class="nav-link">👾 Action</a>
-        <a href="#" class="nav-link">🧩 Puzzle</a>
-        <a href="#" class="nav-link">🏎️ Driving</a>
-    </div>
+    <header>
+        <div class="logo">Network Portal</div>
+        <div class="search-wrapper">
+            <!-- Active Search Bar -->
+            <input type="text" id="searchBar" class="search-bar" placeholder="Filter directories...">
+        </div>
+    </header>
 
-    <!-- Main Section -->
-    <div class="main-content">
+    <div class="container">
+        <h2 class="section-header">Available Directories</h2>
         
-        <div class="hero-banner">
-            <h2>Premium Unblocked Hub</h2>
-            <p>High performance, ultra-smooth web streaming layout. No lag, no network filters.</p>
-        </div>
-
-        <h3 class="section-title">✨ Featured Titles</h3>
-
-        <div class="games-grid">
+        <div class="games-grid" id="gamesGrid">
             
-            <!-- Baldi's Basics Card -->
-            <a href="https://itch.io" class="game-card" target="_blank">
-                <div class="card-thumb">📐</div>
-                <div class="card-body">
+            <!-- Directory item 1 -->
+            <div class="game-card" data-name="baldis basics classic" onclick="openEngine('Baldi\'s Basics Classic', 'https://itch.io')">
+                <div class="card-image-placeholder">Directory // 01</div>
+                <div class="card-details">
                     <div class="game-title">Baldi's Basics</div>
-                    <div class="game-desc">Collect all 7 notebooks and try to escape the survival horror schoolhouse.</div>
-                    <div class="tag-row">
-                        <span class="badge tag-horror">Horror</span>
-                        <span class="badge tag-arcade">Survival</span>
-                    </div>
+                    <div class="game-description">Strategic notebook collection simulation. Avoid contact with faculty agents.</div>
                 </div>
-            </a>
+            </div>
 
-            <!-- Retro Snake Card -->
-            <a href="https://plays.org" class="game-card" target="_blank">
-                <div class="card-thumb">🐍</div>
-                <div class="card-body">
-                    <div class="game-title">Retro Snake</div>
-                    <div class="game-desc">Grow your mechanical snake as long as possible without impacting walls.</div>
-                    <div class="tag-row">
-                        <span class="badge tag-arcade">Arcade</span>
-                        <span class="badge tag-action">Classic</span>
-                    </div>
+            <!-- Directory item 2 -->
+            <div class="game-card" data-name="slope 3d" onclick="openEngine('Slope 3D', 'https://kbhgames.com')">
+                <div class="card-image-placeholder">Directory // 02</div>
+                <div class="card-details">
+                    <div class="game-title">Slope 3D</div>
+                    <div class="game-description">High-velocity kinetic sphere tracking. Avoid structural alignment parameters.</div>
                 </div>
-            </a>
+            </div>
 
-            <!-- Space Invaders Card -->
-            <a href="https://plays.org" class="game-card" target="_blank">
-                <div class="card-thumb">🚀</div>
-                <div class="card-body">
-                    <div class="game-title">Space Invaders</div>
-                    <div class="game-desc">Blast incoming waves of continuous alien starships in full 2D space.</div>
-                    <div class="tag-row">
-                        <span class="badge tag-action">Action</span>
-                        <span class="badge tag-arcade">Retro</span>
-                    </div>
+            <!-- Directory item 3 -->
+            <div class="game-card" data-name="1v1 lol" onclick="openEngine('1v1.LOL', 'https://1v1.lol')">
+                <div class="card-image-placeholder">Directory // 03</div>
+                <div class="card-details">
+                    <div class="game-title">1v1.LOL</div>
+                    <div class="game-description">Competitive real-time architecture and mechanical tracking module.</div>
                 </div>
-            </a>
+            </div>
 
         </div>
     </div>
+
+    <!-- The Slide-Up Player Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="slide-panel">
+            <div class="panel-menu">
+                <span class="panel-title" id="currentPanelTitle">Initialising...</span>
+                <button class="close-button" onclick="closeEngine()">Disconnect</button>
+            </div>
+            <div class="iframe-container">
+                <iframe id="appFrame" src=""></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modalOverlay');
+        const iframe = document.getElementById('appFrame');
+        const headline = document.getElementById('currentPanelTitle');
+        const searchInput = document.getElementById('searchBar');
+        const cards = document.querySelectorAll('.game-card');
+
+        // Dynamic Instant Search Logic (Runs on keystroke)
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            
+            cards.forEach(card => {
+                const gameName = card.getAttribute('data-name');
+                if (gameName.includes(query)) {
+                    card.classList.remove('hidden');
+                </div> else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+
+        // Trigger Smooth Slide Up
+        function openEngine(title, link) {
+            headline.textContent = title;
+            iframe.src = link;
+            modal.classList.add('active');
+        }
+
+        // Clean Interruption
+        function closeEngine() {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                iframe.src = "";
+            }, 250);
+        }
+    </script>
 
 </body>
 </html>
+
