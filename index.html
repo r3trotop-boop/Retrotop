@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Games Unblocked</title>
     <style>
-        /* Modern Clean Workspace Setup */
+        /* Modern Premium Minimalist Layout Theme */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            background-color: #0c0d14;
+            background-color: #050508;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(69, 243, 255, 0.06) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(192, 132, 252, 0.06) 0px, transparent 50%);
             color: #f3f4f6;
             min-height: 100vh;
             padding: 40px 20px;
@@ -27,98 +30,50 @@
         }
 
         h1 {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
             color: #ffffff;
         }
 
-        /* Spring Elastic Velocity Scale Effects */
-        .btn-velocity, .card, .slide-btn {
+        /* Spring Velocity Bounce Mechanics */
+        .btn-velocity, .card {
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s;
         }
-        .btn-velocity:hover, .slide-btn:hover {
-            transform: scale(1.1);
+        .btn-velocity:hover, .card:hover {
+            transform: scale(1.05);
         }
-        .btn-velocity:active, .slide-btn:active {
-            transform: scale(0.95);
+        .btn-velocity:active, .card:active {
+            transform: scale(0.96);
         }
 
-        /* Center-Aligned Working Search Field */
+        /* Sleek Search Interface Wrapper */
         .search-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 10px;
+            margin-bottom: 40px;
         }
 
         .search-box {
             width: 100%;
-            max-width: 460px;
-            padding: 14px 22px;
-            background-color: #171923;
-            border: 1px solid #45f3ff;
-            border-radius: 10px;
+            max-width: 480px;
+            padding: 14px 24px;
+            background-color: #111116;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
             color: white;
             font-size: 0.95rem;
             outline: none;
         }
-
-        /* Banner Slider Component */
-        .slider-container {
-            position: relative;
-            max-width: 950px;
-            height: 200px;
-            margin: 30px auto;
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid #23273a;
-            background-color: #171923;
+        .search-box:focus {
+            border-color: rgba(69, 243, 255, 0.5);
+            box-shadow: 0 0 25px rgba(69, 243, 255, 0.1);
         }
 
-        .slider-track {
-            display: flex;
-            width: 300%;
-            height: 100%;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .slide {
-            width: 33.333%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 60px;
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
-            background-color: rgba(12, 13, 20, 0.8);
-        }
-
-        .slide h2 { font-size: 1.6rem; margin-bottom: 6px; color: #45f3ff; }
-        .slide p { font-size: 0.9rem; color: #9ca3af; max-width: 500px; }
-
-        .slide-btn {
-            position: absolute;
-            top: 50%;
-            background-color: #171923;
-            border: 1px solid #45f3ff;
-            color: white;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .slide-prev { left: 15px; transform: translateY(-50%); }
-        .slide-next { right: 15px; transform: translateY(-50%); }
-
-        /* Flexible Center Grid Container */
+        /* Flexible Grid System Framework (12 Game Cards) */
         .grid-container {
-            max-width: 950px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -130,79 +85,74 @@
             width: 100%;
         }
 
-        /* Modern High-End Game Cards */
+        /* Premium Tech Card Styling */
         .card {
-            background-color: #171923;
-            border: 1px solid #23273a;
-            border-radius: 14px;
+            background-color: #111116;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            width: calc(33.333% - 18px);
-            min-width: 270px;
+            width: calc(25% - 20px);
+            min-width: 240px;
             flex-grow: 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         .card:hover {
-            transform: translateY(-4px) scale(1.02);
-            border-color: #45f3ff;
+            border-color: rgba(69, 243, 255, 0.4);
+            box-shadow: 0 15px 30px rgba(69, 243, 255, 0.05);
         }
 
         .card-banner {
-            height: 130px;
-            border-bottom: 1px solid #23273a;
+            height: 110px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #161622 0%, #0d0d14 100%);
         }
-        .banner-baldi { background: linear-gradient(135deg, #182e1e 0%, #0d1a11 100%); color: #4ade80; }
-        .banner-slope { background: linear-gradient(135deg, #181f38 0%, #0d1121 100%); color: #6366f1; }
-        .banner-lol { background: linear-gradient(135deg, #2d183d 0%, #170d21 100%); color: #a855f7; }
 
-        .card-info { padding: 20px; }
-        .card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; }
+        .card-info { padding: 18px; }
+        .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; }
         .card-desc { font-size: 0.85rem; color: #9ca3af; line-height: 1.4; }
 
-        /* Dead-Centered Popup Panel Overlay */
+        /* Dead-Centered Screen Popup Windows Frame System Fix */
         .popup-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(5, 5, 8, 0.85);
-            backdrop-filter: blur(6px);
-            z-index: 100;
-            display: flex;
+            background-color: rgba(3, 3, 5, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 99999;
+            display: none; /* Hidden on initialization */
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s ease;
         }
 
-        .popup-overlay.show {
-            opacity: 1;
-            pointer-events: auto;
+        /* Enforced visibility bypass state display profile */
+        .popup-overlay.active-view {
+            display: flex !important;
         }
 
         .popup-window {
-            width: 88%;
-            max-width: 1000px;
-            height: 80vh;
-            background-color: #171923;
-            border: 1px solid #45f3ff;
-            border-radius: 16px;
+            width: 90%;
+            max-width: 1100px;
+            height: 85vh;
+            background-color: #0b0c11;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transform: scale(0.88);
-            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .popup-overlay.show .popup-window {
+        .popup-overlay.active-view .popup-window {
             transform: scale(1);
         }
 
@@ -211,25 +161,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #23273a;
-            background-color: #0f111a;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background-color: #101117;
         }
 
-        .popup-header h2 { font-size: 1.1rem; }
+        .popup-header h2 { font-size: 1.15rem; font-weight: 700; color: white; }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
         }
 
         .fullscreen-btn {
-            background-color: #23273a;
-            border: 1px solid #45f3ff;
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #ffffff;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.8rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
         }
@@ -238,9 +188,12 @@
             background: none;
             border: none;
             color: #ef4444;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .game-wrapper {
@@ -254,7 +207,6 @@
             border: none;
         }
 
-        /* Clean Hide layout logic */
         .card.hidden { display: none !important; }
     </style>
 </head>
@@ -263,43 +215,78 @@
     <header>
         <h1>Retro Games unblocked</h1>
         <div class="search-container">
-            <!-- Active Filter Bar -->
-            <input type="text" id="gameSearch" class="search-box" placeholder="Search available games...">
+            <input type="text" id="gameSearch" class="search-box" placeholder="Search games catalog...">
         </div>
     </header>
-
-    <div class="slider-container">
-        <button class="slide-btn slide-prev" onclick="moveSlider(-1)">❮</button>
-        <button class="slide-btn slide-next" onclick="moveSlider(1)">❯</button>
-        <div class="slider-track" id="sliderTrack">
-            <div class="slide" style="background-image: linear-gradient(rgba(12,13,20,0.7), rgba(12,13,20,0.7)), url('https://unsplash.com');">
-                <h2>Featured: Baldi's Basics</h2>
-                <p>Test your problem-solving capabilities under severe classroom pressure parameters.</p>
-            </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(12,13,20,0.7), rgba(12,13,20,0.7)), url('https://unsplash.com');">
-                <h2>Trending: Slope 3D</h2>
-                <p>Compete for the highest structural tracking distance down a fast shifting platform line.</p>
-            </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(12,13,20,0.7), rgba(12,13,20,0.7)), url('https://unsplash.com');">
-                <h2>Active: 1v1.LOL</h2>
-                <p>Master defensive mechanics and refine coordinate tracking targeting systems safely.</p>
-            </div>
-        </div>
-    </div>
 
     <div class="grid-container">
         <div class="grid">
             
-            <!-- Game 1 -->
+            <!-- Game 1: Baldi -->
             <div class="card" onclick="openGame('Baldi\'s Basics', 'https://itch.io')">
-                <div class="card-banner banner-baldi">BALDI // 01</div>
+                <div class="card-banner">📐</div>
                 <div class="card-info">
                     <h2 class="card-title">Baldi's Basics</h2>
-                    <p class="card-desc">Find all 7 notebooks and try to escape the school classroom setup.</p>
+                    <p class="card-desc">Find all 7 notebooks and try to escape the classroom.</p>
                 </div>
             </div>
 
-            <!-- 100% UNBLOCKED CLOUD ENGINE ENDPOINT FOR SLOPE -->
-            <div class="card" onclick="openGame('Slope 3D', 'https://editmysite.com')">
-                <div class="card-banner banner-slope">SLOPE // 02</div>
+            <!-- Game 2: Slope (Bypasses browser CORS blocks) -->
+            <div class="card" onclick="openGame('Slope 3D', 'https://github.io')">
+                <div class="card-banner">🟢</div>
                 <div class="card-info">
+                    <h2 class="card-title">Slope 3D</h2>
+                    <p class="card-desc">Keep rolling down the fast tracks without crashing.</p>
+                </div>
+            </div>
+
+            <!-- Game 3: 1v1.LOL (Bypasses browser CORS blocks) -->
+            <div class="card" onclick="openGame('1v1.LOL', 'https://github.io')">
+                <div class="card-banner">🔫</div>
+                <div class="card-info">
+                    <h2 class="card-title">1v1.LOL</h2>
+                    <p class="card-desc">Build layouts and practice multi-tracking battle target routines.</p>
+                </div>
+            </div>
+
+            <!-- Game 4: Tunnel Rush -->
+            <div class="card" onclick="openGame('Tunnel Rush', 'https://github.io')">
+                <div class="card-banner">🌀</div>
+                <div class="card-info">
+                    <h2 class="card-title">Tunnel Rush</h2>
+                    <p class="card-desc">Blaze through swirling 3D color tubes dodging obstacles.</p>
+                </div>
+            </div>
+
+            <!-- Game 5: Retro Bowl -->
+            <div class="card" onclick="openGame('Retro Bowl', 'https://github.io')">
+                <div class="card-banner">🏈</div>
+                <div class="card-info">
+                    <h2 class="card-title">Retro Bowl</h2>
+                    <p class="card-desc">Manage your team and quarterback your roster to victory.</p>
+                </div>
+            </div>
+
+            <!-- Game 6: Run 3 -->
+            <div class="card" onclick="openGame('Run 3', 'https://github.io')">
+                <div class="card-banner">🏃</div>
+                <div class="card-info">
+                    <h2 class="card-title">Run 3</h2>
+                    <p class="card-desc">Sprint and jump through deep tunnels floating out in space.</p>
+                </div>
+            </div>
+
+            <!-- Game 7: Tetris -->
+            <div class="card" onclick="openGame('Tetris', 'https://github.io')">
+                <div class="card-banner">🧱</div>
+                <div class="card-info">
+                    <h2 class="card-title">Tetris</h2>
+                    <p class="card-desc">Clear lines by grouping falling geometric pixel matrix blocks.</p>
+                </div>
+            </div>
+
+            <!-- Game 8: Pac-Man -->
+            <div class="card" onclick="openGame('Pac-Man', 'https://github.io')">
+                <div class="card-banner">🍕</div>
+                <div class="card-info">
+                    <h2 class="card-title">Pac-Man</h2>
