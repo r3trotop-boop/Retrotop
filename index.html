@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Games Unblocked</title>
     <style>
-        /* Clean Human-Made Minimalist Theme */
+        /* Modern Clean Base Layout */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -21,17 +21,26 @@
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        /* requested title heading */
         h1 {
             font-size: 2.2rem;
             margin-bottom: 20px;
             letter-spacing: -0.5px;
         }
 
-        /* Fixed working search bar layout */
+        /* Spring Velocity (Elastic Bounce) for ALL Buttons and Interactive Cards */
+        .btn-velocity, .card, .slide-btn {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s;
+        }
+        .btn-velocity:hover, .slide-btn:hover {
+            transform: scale(1.15); /* Snappy bounce scale up */
+        }
+        .btn-velocity:active, .slide-btn:active {
+            transform: scale(0.95); /* Compress on click */
+        }
+
         .search-box {
             width: 100%;
             max-width: 450px;
@@ -42,9 +51,69 @@
             color: white;
             font-size: 1rem;
             outline: none;
+            transition: all 0.2s;
+        }
+        .search-box:focus {
+            box-shadow: 0 0 15px rgba(69, 243, 255, 0.3);
         }
 
-        /* Clean Modern Games Grid */
+        /* Featured Game Image/Banner Slider Component */
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            height: 220px;
+            margin: 0 auto 40px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2f3e46;
+            background-color: #1f2833;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .slide {
+            width: 33.333%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 60px;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(11, 12, 16, 0.75);
+        }
+
+        .slide h2 { font-size: 1.8rem; margin-bottom: 5px; color: #45f3ff; }
+        .slide p { font-size: 0.95rem; color: #cbd5e1; max-width: 500px; }
+
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(31, 40, 51, 0.8);
+            border: 1px solid #45f3ff;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 5;
+        }
+        .slide-prev { left: 15px; }
+        .slide-next { right: 15px; }
+        /* Keep vertical centering adjustments intact during hover scales */
+        .slide-prev:hover { transform: translateY(-50%) scale(1.15); }
+        .slide-next:hover { transform: translateY(-50%) scale(1.15); }
+
+        /* Game Grid Framework */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -59,11 +128,10 @@
             overflow: hidden;
             cursor: pointer;
             border: 1px solid #2f3e46;
-            transition: transform 0.2s ease, border-color 0.2s;
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px) scale(1.03);
             border-color: #45f3ff;
         }
 
@@ -76,22 +144,11 @@
             font-size: 3rem;
         }
 
-        .card-info {
-            padding: 15px;
-        }
+        .card-info { padding: 15px; }
+        .card-title { font-size: 1.15rem; margin-bottom: 5px; }
+        .card-desc { font-size: 0.85rem; color: #95a5a6; line-height: 1.4; }
 
-        .card-title {
-            font-size: 1.15rem;
-            margin-bottom: 5px;
-        }
-
-        .card-desc {
-            font-size: 0.85rem;
-            color: #95a5a6;
-            line-height: 1.4;
-        }
-
-        /* Snappy, Smooth Slide-Up Popup Container */
+        /* Centered Overlay Container */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -99,10 +156,11 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
             z-index: 100;
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center; /* Dead-Center alignment */
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.25s ease;
@@ -113,50 +171,67 @@
             pointer-events: auto;
         }
 
+        /* Centered Scaling Popup Window Shell */
         .popup-window {
-            width: 95%;
-            max-width: 1100px;
-            height: 85vh;
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
             background-color: #1f2833;
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
+            border: 1px solid #45f3ff;
+            border-radius: 16px;
             display: flex;
             flex-direction: column;
-            transform: translateY(100%);
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow: hidden;
+            
+            /* Closes to the middle using scale transformations */
+            transform: scale(0.7);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .popup-overlay.show .popup-window {
-            transform: translateY(0);
+            transform: scale(1); /* Snaps open into the center framework */
         }
 
-        /* Popup Top Navigation Row */
         .popup-header {
             padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #2f3e46;
+            background-color: #151c24;
         }
 
-        /* Custom ✕ Close Button */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Top Action Buttons (Fullscreen + Close) */
+        .fullscreen-btn {
+            background-color: #2f3e46;
+            border: 1px solid #45f3ff;
+            color: #45f3ff;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         .close-x {
             background: none;
             border: none;
             color: #ff4d4d;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.15s;
-        }
-
-        .close-x:hover {
-            transform: scale(1.2);
         }
 
         .game-wrapper {
             flex: 1;
             background-color: black;
+            position: relative;
         }
 
         iframe {
@@ -165,23 +240,41 @@
             border: none;
         }
 
-        /* Search utility hidden flag */
-        .hidden {
-            display: none !important;
-        }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Retro Games unblocked</h1>
-        <!-- Working Live Filter Search Bar -->
         <input type="text" id="gameSearch" class="search-box" placeholder="Type a game name...">
     </header>
 
+    <!-- The Requested Banner Slider Component -->
+    <div class="slider-container">
+        <button class="slide-btn slide-prev" onclick="moveSlider(-1)">❮</button>
+        <button class="slide-btn slide-next" onclick="moveSlider(1)">❯</button>
+        <div class="slider-track" id="sliderTrack">
+            <!-- Slide 1 -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com');">
+                <h2>Featured: Baldi's Basics</h2>
+                <p>Test your problem-solving capabilities under severe classroom pressure parameters.</p>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com');">
+                <h2>Trending: Slope 3D</h2>
+                <p>Compete for the highest structural tracking distance down a fast shifting vector platform line.</p>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com');">
+                <h2>Active: 1v1.LOL</h2>
+                <p>Master defensive mechanics and refine coordinate tracking targeting systems safely layout.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Grid Directory -->
     <div class="grid">
-        
-        <!-- Game 1 -->
         <div class="card" onclick="openGame('Baldi\'s Basics', 'https://itch.io')">
             <div class="card-banner">📐</div>
             <div class="card-info">
@@ -190,7 +283,6 @@
             </div>
         </div>
 
-        <!-- Game 2 -->
         <div class="card" onclick="openGame('Slope 3D', 'https://github.io')">
             <div class="card-banner">🟢</div>
             <div class="card-info">
@@ -199,7 +291,6 @@
             </div>
         </div>
 
-        <!-- Game 3 -->
         <div class="card" onclick="openGame('1v1.LOL', 'https://1v1.lol')">
             <div class="card-banner">🔫</div>
             <div class="card-info">
@@ -207,60 +298,5 @@
                 <p class="card-desc">Build defensive layouts and practice tracking target mechanics.</p>
             </div>
         </div>
-
     </div>
-
-    <!-- Slide-Up Game Player Panel Pop-up -->
-    <div class="popup-overlay" id="playerOverlay">
-        <div class="popup-window">
-            <div class="popup-header">
-                <h2 id="popupTitle">Loading Engine...</h2>
-                <!-- The Core ✕ Exit Button -->
-                <button class="close-x" onclick="closeGame()">✕</button>
-            </div>
-            <div class="game-wrapper">
-                <iframe id="gameIframe" src="" allow="autoplay; fullscreen;"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const overlay = document.getElementById('playerOverlay');
-        const iframe = document.getElementById('gameIframe');
-        const title = document.getElementById('popupTitle');
-        const searchInput = document.getElementById('gameSearch');
-        const cards = document.querySelectorAll('.card');
-
-        // Fixed instant text matching filter search loop
-        searchInput.addEventListener('input', () => {
-            const val = searchInput.value.toLowerCase().trim();
-            
-            cards.forEach(card => {
-                const headerText = card.querySelector('.card-title').textContent.toLowerCase();
-                if (headerText.includes(val)) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        });
-
-        // Launch app iframe container directly into local viewport
-        function openGame(name, link) {
-            title.textContent = name;
-            iframe.src = link;
-            overlay.classList.add('show');
-        }
-
-        // Clean termination sequence to stop background frame music processes
-        function closeGame() {
-            overlay.classList.remove('show');
-            setTimeout(() => {
-                iframe.src = "";
-            }, 300);
-        }
-    </script>
-
-</body>
-</html>
 
