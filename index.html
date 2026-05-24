@@ -19,35 +19,37 @@
                 radial-gradient(at 0% 0%, rgba(69, 243, 255, 0.06) 0px, transparent 50%),
                 radial-gradient(at 100% 0%, rgba(192, 132, 252, 0.06) 0px, transparent 50%);
             color: #f3f4f6;
-            min-height: 100vh;
-            padding: 40px 20px;
-            overflow-x: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Main window is fixed, only specific panels scroll */
         }
 
         header {
             text-align: center;
-            margin-bottom: 30px;
+            padding: 30px 20px 15px 20px;
+            flex-shrink: 0;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 800;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             letter-spacing: -1px;
             color: #ffffff;
         }
 
         /* Spring Velocity Bounce Mechanics */
-        .btn-velocity, .card {
+        .btn-velocity, .card, .menu-item {
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s;
         }
-        .btn-velocity:hover {
-            transform: scale(1.1);
+        .btn-velocity:hover, .menu-item:hover {
+            transform: scale(1.08);
         }
         .card:hover {
-            transform: scale(1.04);
+            transform: scale(1.03);
         }
-        .btn-velocity:active, .card:active {
+        .btn-velocity:active, .card:active, .menu-item:active {
             transform: scale(0.96);
         }
 
@@ -55,13 +57,13 @@
         .search-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
         }
 
         .search-box {
             width: 100%;
             max-width: 480px;
-            padding: 14px 24px;
+            padding: 12px 20px;
             background-color: #111116;
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 12px;
@@ -74,44 +76,108 @@
             box-shadow: 0 0 25px rgba(69, 243, 255, 0.1);
         }
 
-        /* Flexible Grid System Framework */
-        .grid-container {
-            max-width: 1100px;
+        /* Main Workspace Splitting Layout Frame */
+        .app-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 10px 20px;
+            gap: 25px;
+        }
+
+        /* FIXED SIDEBAR CATEGORY MENU */
+        .sidebar {
+            width: 220px;
+            background-color: rgba(17, 17, 22, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-shrink: 0;
+            overflow-y: auto; /* Handles category overflow scrolling smoothly */
+        }
+
+        .menu-item {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            color: #9ca3af;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+        }
+        .menu-item.active, .menu-item:hover {
+            background-color: #111116;
+            border-color: rgba(69, 243, 255, 0.2);
+            color: #ffffff;
+        }
+
+        /* DYNAMIC SCROLL CONTAINER FRAMEWORK (REQUESTED FEATURE) */
+        .grid-container {
+            flex: 1;
+            overflow-y: scroll; /* Enables smooth, independent catalog layout scrolling */
+            padding-right: 8px;
+            scroll-behavior: smooth;
+        }
+
+        /* Sleek Modern Custom Scrollbar UI Elements */
+        .grid-container::-webkit-scrollbar, .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .grid-container::-webkit-scrollbar-track, .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .grid-container::-webkit-scrollbar-thumb, .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .grid-container::-webkit-scrollbar-thumb:hover, .sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(69, 243, 255, 0.3);
         }
 
         .grid {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
+            gap: 20px;
             width: 100%;
+            padding-bottom: 40px;
         }
 
-        /* Premium Tech Card Styling with Dynamic Image Integration */
+        /* Premium Tech Card Styling */
         .card {
             background-color: #111116;
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            width: calc(33.333% - 20px);
-            min-width: 260px;
+            width: calc(33.333% - 14px); /* Clean uniform desktop rows */
+            min-width: 250px;
             flex-grow: 0;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
         }
 
+        /* Screen sizing logic scales card columns cleanly */
+        @media (max-width: 1024px) { .card { width: calc(50% - 10px); } }
+        @media (max-width: 700px) { .card { width: 100%; } }
+
         .card:hover {
             border-color: rgba(69, 243, 255, 0.4);
             box-shadow: 0 15px 30px rgba(69, 243, 255, 0.05);
         }
 
-        /* HIGH RESOLUTION GAME PICTURE SLOTS */
         .card-image-box {
             width: 100%;
-            height: 150px;
+            height: 130px;
             background-size: cover;
             background-position: center;
             background-color: #161622;
@@ -119,22 +185,22 @@
         }
 
         .card-info { 
-            padding: 18px; 
+            padding: 16px; 
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; }
-        .card-desc { font-size: 0.85rem; color: #9ca3af; line-height: 1.4; margin-bottom: 14px; flex-grow: 1; }
+        .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; }
+        .card-desc { font-size: 0.82rem; color: #9ca3af; line-height: 1.4; margin-bottom: 12px; flex-grow: 1; }
 
-        /* THE LIKE AND DISLIKE RATING SYSTEM LAYOUT */
+        /* The Like and Dislike Rating System Layout */
         .rating-panel {
             display: flex;
             align-items: center;
             gap: 12px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
-            padding-top: 12px;
+            padding-top: 10px;
             margin-top: auto;
         }
 
@@ -142,15 +208,14 @@
             background-color: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.06);
             color: #a1a1aa;
-            padding: 6px 12px;
+            padding: 5px 10px;
             border-radius: 6px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 6px;
-            transition: all 0.2s ease;
         }
         .rating-btn:hover {
             background-color: rgba(255, 255, 255, 0.08);
@@ -167,7 +232,7 @@
             background-color: rgba(239, 68, 68, 0.05);
         }
 
-        /* HARDCODED POPUP STYLING LAYER - STOPS ACCIDENTAL RENDERING BLOCKS */
+        /* PURE PRE-HARDCODED FRAMEWORK OVERLAY MODULE */
         #fixedOverlay {
             position: fixed;
             top: 0;
@@ -177,7 +242,7 @@
             background-color: rgba(3, 3, 5, 0.95);
             backdrop-filter: blur(12px);
             z-index: 999999;
-            display: none !important; /* Forced active display properties run via code links */
+            display: none !important; 
             justify-content: center;
             align-items: center;
         }
@@ -245,8 +310,6 @@
             height: 100%;
             border: none;
         }
-
-        .card.hidden { display: none !important; }
     </style>
 </head>
 <body>
@@ -258,33 +321,5 @@
         </div>
     </header>
 
-    <div class="grid-container">
-        <div class="grid">
-            
-            <!-- Game 1: Eaglercraft -->
-            <div class="card" data-id="retro_eaglercraft" onclick="openGame('Eaglercraft (Minecraft)', 'https://github.io')">
-                <div class="card-image-box" style="background-image: url('https://unsplash.com');"></div>
-                <div class="card-info">
-                    <h2 class="card-title">Eaglercraft</h2>
-                    <p class="card-desc">Full web-based multiplayer Minecraft clone. Explore, mine, and build blocks.</p>
-                    <div class="rating-panel">
-                        <button class="rating-btn like-btn" onclick="registerGlobalVote(event, 'retro_eaglercraft', 'like')">👍 <span class="count">0</span></button>
-                        <button class="rating-btn dislike-btn" onclick="registerGlobalVote(event, 'retro_eaglercraft', 'dislike')">👎 <span class="count">0</span></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Game 2: Red Ball 4 -->
-            <div class="card" data-id="retro_redball4" onclick="openGame('Red Ball 4', 'https://github.io')">
-                <div class="card-image-box" style="background-image: url('https://unsplash.com');"></div>
-                <div class="card-info">
-                    <h2 class="card-title">Red Ball 4</h2>
-                    <p class="card-desc">Roll, jump, and bounce through dangerous obstacles to defeat the evil squares.</p>
-                    <div class="rating-panel">
-                        <button class="rating-btn like-btn" onclick="registerGlobalVote(event, 'retro_redball4', 'like')">👍 <span class="count">0</span></button>
-                        <button class="rating-btn dislike-btn" onclick="registerGlobalVote(event, 'retro_redball4', 'dislike')">👎 <span class="count">0</span></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Game 3: Run 3 -->
+    <div class="app-body">
+        <!-- FIXED NAVIGATION BAR CATEGORIES -->
