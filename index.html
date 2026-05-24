@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Games Unblocked</title>
     <style>
-        /* Modern Premium Layout Mechanics */
+        /* Modern High-End Styling Framework */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,58 +14,63 @@
         }
 
         body {
-            background-color: #050508;
+            background-color: #030305;
             background-image: 
-                radial-gradient(at 0% 0%, rgba(35, 25, 60, 0.25) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(20, 35, 55, 0.25) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(55, 30, 100, 0.2) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(25, 45, 80, 0.2) 0px, transparent 50%);
             color: #f5f5f7;
             min-height: 100vh;
-            perspective: 1500px; /* Essential for smooth 3D tilting panels */
+            perspective: 2000px; /* Advanced 3D scene parameter space */
             overflow-x: hidden;
             padding-bottom: 60px;
         }
 
-        /* Clean Header Layout */
+        /* Top Clean Centered Navigation Bar */
         header {
-            padding: 50px 20px 20px 20px;
+            padding: 60px 20px 30px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         .main-title {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
             color: #ffffff;
-            text-align: center;
+            text-transform: capitalize;
+            background: linear-gradient(to bottom, #ffffff 40%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Responsive High-Contrast Search Bar */
+        /* High-Contrast Interactive Search Field */
         .search-container {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
         }
 
         .search-input {
             width: 100%;
-            background-color: #0f0f13;
-            border: 1px solid #22222a;
-            padding: 14px 20px;
-            border-radius: 10px;
+            background-color: rgba(15, 15, 20, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 16px 24px;
+            border-radius: 12px;
             color: #ffffff;
             font-size: 0.95rem;
             outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
         }
 
         .search-input:focus {
-            border-color: #444452;
-            box-shadow: 0 0 0 1px #444452;
+            border-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(20, 20, 25, 0.9);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.02);
         }
 
-        /* Modern Visual Grid */
+        /* Responsive Dashboard Hub Grid */
         .main-container {
             max-width: 1100px;
             margin: 30px auto;
@@ -75,61 +80,68 @@
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 28px;
+            gap: 30px;
         }
 
-        /* High-End Game Card Designs */
+        /* Premium Micro-Interactive Game Cards */
         .game-directory-card {
-            background-color: #0f0f13;
-            border: 1px solid #1c1c24;
-            border-radius: 14px;
+            background-color: rgba(18, 18, 24, 0.55);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            /* Hardware-accelerated property declarations */
+            will-change: transform, border-color, box-shadow;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                        border-color 0.3s, 
+                        box-shadow 0.3s;
         }
 
         .game-directory-card:hover {
-            transform: translateY(-4px);
-            border-color: #3a3a46;
+            transform: translateY(-6px) scale(1.01);
+            border-color: rgba(255, 255, 255, 0.14);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
         }
 
-        /* Dynamic CSS Abstract Background Art Blocks */
+        /* Abstract Premium Geometric Cover Panels */
         .card-cover {
-            height: 140px;
-            border-bottom: 1px solid #1c1c24;
+            height: 150px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
-        .bg-baldi { background: linear-gradient(135deg, #1b3a24 0%, #0c1a10 100%); color: #4ade80; }
-        .bg-slope { background: linear-gradient(135deg, #1e1b4b 0%, #0f0e26 100%); color: #818cf8; }
-        .bg-lol { background: linear-gradient(135deg, #4c1d95 0%, #240e46 100%); color: #c084fc; }
+        .bg-01 { background: linear-gradient(135deg, #131c16 0%, #080c0a 100%); color: #34d399; }
+        .bg-02 { background: linear-gradient(135deg, #111324 0%, #07080f 100%); color: #6366f1; }
+        .bg-03 { background: linear-gradient(135deg, #201130 0%, #0e0716 100%); color: #a855f7; }
 
         .card-content {
-            padding: 22px;
+            padding: 24px;
         }
 
         .game-title {
             font-size: 1.15rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
         }
 
         .game-description {
             font-size: 0.9rem;
-            color: #888896;
+            color: #83838e;
             line-height: 1.5;
         }
 
-        /* Interactive 3D Slide-and-Rotate Overlay Pop-up */
+        /* Full-Viewport Backdrop Overlay */
         .player-overlay {
             position: fixed;
             top: 0;
@@ -137,14 +149,14 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(14px);
             z-index: 100;
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Keeps alignment matching your slide-up workflow */
+            align-items: flex-end;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .player-overlay.active {
@@ -152,72 +164,96 @@
             pointer-events: auto;
         }
 
-        /* The Custom sliding app panel container */
+        /* The Kinematic 3D Pendulum Swing Frame Panel */
         .game-frame-panel {
-            width: 95%;
-            max-width: 1150px;
+            width: 96%;
+            max-width: 1180px;
             height: 88vh;
-            background-color: #0a0a0f;
-            border: 1px solid #22222a;
+            background-color: #060608;
+            border: 1px solid rgba(255,255,255,0.08);
             border-bottom: none;
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 -15px 40px rgba(0,0,0,0.7);
+            box-shadow: 0 -25px 55px rgba(0,0,0,0.85);
             
-            /* Initial Closed Position: Slid down, tilted back on X axis, and swung to the side on Z axis */
-            transform: translateY(100%) rotateX(-14deg) rotateZ(-3deg);
+            /* Root setup transforms for mechanical side-to-side physics injection */
             transform-origin: bottom center;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+            
+            /* Base entry transition state variables */
+            transform: translateY(100%) rotateX(-15deg) rotateZ(-4deg);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Active: Glides up smoothly and straightens dynamically */
+        /* Active: Triggers the custom hardware acceleration swing keyframes */
         .player-overlay.active .game-frame-panel {
-            transform: translateY(0) rotateX(0deg) rotateZ(0deg);
+            animation: springVelocityEntry 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
+        /* Custom Keyframe Stack: Controls the deceleration inertia */
+        @keyframes springVelocityEntry {
+            0% {
+                transform: translateY(100%) rotateX(-15deg) rotateZ(-6deg);
+            }
+            50% {
+                transform: translateY(-1.5%) rotateX(2deg) rotateZ(1.5deg); /* Overshoots up and swings right */
+            }
+            70% {
+                transform: translateY(0.5%) rotateX(-0.5deg) rotateZ(-0.8deg); /* Settles back down and swings left */
+            }
+            85% {
+                transform: translateY(-0.2%) rotateX(0.1deg) rotateZ(0.3deg); /* Micro oscillation right */
+            }
+            100% {
+                transform: translateY(0) rotateX(0deg) rotateZ(0deg); /* Perfect static alignment lock */
+            }
+        }
+
+        /* Player Panel Top Bar Menu */
         .panel-top-nav {
-            padding: 16px 28px;
+            padding: 18px 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #1c1c24;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .panel-title-text {
             font-size: 1.05rem;
             font-weight: 700;
             color: #ffffff;
+            letter-spacing: -0.3px;
         }
 
-        /* Custom High-Visibility Close Button */
+        /* Minimalist Modern Exit Shell */
         .exit-button {
-            background-color: #16161f;
-            color: #ef4444;
-            border: 1px solid #2a1a1a;
-            width: 36px;
-            height: 36px;
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #a1a1aa;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 0.95rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
         }
 
         .exit-button:hover {
-            background-color: #ef4444;
-            color: #ffffff;
-            border-color: #ef4444;
-            transform: rotate(90deg); /* Smooth spinning effect on hover */
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border-color: rgba(239, 68, 68, 0.25);
+            transform: scale(1.05);
         }
 
         .frame-wrapper {
             flex: 1;
             background-color: #000000;
+            overflow: hidden;
         }
 
         iframe {
@@ -226,7 +262,7 @@
             border: none;
         }
 
-        /* Functional Filter utilities */
+        /* Global Instant Utility Filter Hide */
         .game-directory-card.filter-hide {
             display: none !important;
         }
@@ -237,58 +273,21 @@
     <header>
         <h1 class="main-title">Retro Games unblocked</h1>
         <div class="search-container">
-            <input type="text" id="liveSearch" class="search-input" placeholder="Search available directories...">
+            <input type="text" id="liveSearch" class="search-input" placeholder="Search unblocked directories...">
         </div>
     </header>
 
     <div class="main-container">
         <div class="grid-layout" id="mainGrid">
             
-            <!-- Game 1: Baldi's Basics Classic -->
+            <!-- Game 1 -->
             <div class="game-directory-card" onclick="launchApp('Baldi\'s Basics Classic', 'https://itch.io')">
-                <div class="card-cover bg-baldi">Directory // 01</div>
+                <div class="card-cover bg-01">Directory // 01</div>
                 <div class="card-content">
                     <h2 class="game-title">Baldi's Basics</h2>
                     <p class="game-description">Complete strategic math collection procedures inside the schoolhouse environment.</p>
                 </div>
             </div>
 
-            <!-- Game 2: Slope 3D (Optimized open embed endpoint) -->
+            <!-- Game 2 -->
             <div class="game-directory-card" onclick="launchApp('Slope 3D', 'https://googleusercontent.com')">
-                <div class="card-cover bg-slope">Directory // 02</div>
-                <div class="card-content">
-                    <h2 class="game-title">Slope 3D</h2>
-                    <p class="game-description">High-velocity kinetic ball tracking simulation down a moving physics pathway.</p>
-                </div>
-            </div>
-
-            <!-- Game 3: 1v1.LOL (Raw game frame engine clone) -->
-            <div class="game-directory-card" onclick="launchApp('1v1.LOL', 'https://googleusercontent.com')">
-                <div class="card-cover bg-lol">Directory // 03</div>
-                <div class="card-content">
-                    <h2 class="game-title">1v1.LOL</h2>
-                    <p class="game-description">Competitive real-time structural configuration and crosshair tracking practice.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- The 3D Slide-and-Rotate Player Shell Pop-up -->
-    <div class="player-overlay" id="globalOverlay">
-        <div class="game-frame-panel">
-            <div class="panel-top-nav">
-                <span class="panel-title-text" id="activeFrameTitle">System Initializing...</span>
-                <!-- The Core ✕ Exit Button -->
-                <button class="exit-button" onclick="closeApp()">✕</button>
-            </div>
-            <div class="frame-wrapper">
-                <iframe id="displayFrame" src="" allow="autoplay; gamepad; fullscreen;"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const overlayElement = document.getElementById('globalOverlay');
-        const frameElement = document.getElementById('displayFrame');
-        const titleElement = document.getElementById('activeFrameTitle');
