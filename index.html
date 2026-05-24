@@ -5,51 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Games Unblocked</title>
     <style>
-        /* Modern Premium Minimalist Theme Layout */
+        /* Modern Clean Workspace Setup */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: sans-serif;
         }
 
         body {
-            background-color: #050508;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(69, 243, 255, 0.06) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(192, 132, 252, 0.06) 0px, transparent 50%);
+            background-color: #0c0d14;
             color: #f3f4f6;
             min-height: 100vh;
-            padding: 50px 20px;
+            padding: 40px 20px;
             overflow-x: hidden;
-            opacity: 0;
-            animation: globalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes globalFadeIn {
-            to { opacity: 1; }
         }
 
         header {
             text-align: center;
             margin-bottom: 30px;
-            transform: translateY(-15px);
-            animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
-        }
-
-        @keyframes slideDown {
-            to { transform: translateY(0); }
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             font-weight: 800;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
+            margin-bottom: 20px;
             color: #ffffff;
         }
 
-        /* Spring Velocity Elastic Bounce Mechanics */
+        /* Spring Elastic Velocity Scale Effects */
         .btn-velocity, .card, .slide-btn {
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s;
         }
@@ -57,10 +41,10 @@
             transform: scale(1.1);
         }
         .btn-velocity:active, .slide-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
         }
 
-        /* Sleek Search Interface Wrapper */
+        /* Center-Aligned Working Search Field */
         .search-container {
             display: flex;
             justify-content: center;
@@ -69,38 +53,26 @@
 
         .search-box {
             width: 100%;
-            max-width: 480px;
-            padding: 14px 24px;
-            background-color: #111116;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+            max-width: 460px;
+            padding: 14px 22px;
+            background-color: #171923;
+            border: 1px solid #45f3ff;
+            border-radius: 10px;
             color: white;
             font-size: 0.95rem;
             outline: none;
         }
-        .search-box:focus {
-            border-color: rgba(69, 243, 255, 0.4);
-            box-shadow: 0 0 25px rgba(69, 243, 255, 0.05);
-        }
 
-        /* Premium Banner Slider Layout */
+        /* Banner Slider Component */
         .slider-container {
             position: relative;
-            max-width: 1000px;
-            height: 220px;
-            margin: 40px auto;
-            border-radius: 18px;
+            max-width: 950px;
+            height: 200px;
+            margin: 30px auto;
+            border-radius: 14px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background-color: #111116;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transform: translateY(20px);
-            opacity: 0;
-            animation: contentRise 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-        }
-
-        @keyframes contentRise {
-            to { transform: translateY(0); opacity: 1; }
+            border: 1px solid #23273a;
+            background-color: #171923;
         }
 
         .slider-track {
@@ -116,108 +88,99 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 80px;
+            padding: 0 60px;
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
-            background-color: rgba(10, 10, 15, 0.82);
+            background-color: rgba(12, 13, 20, 0.8);
         }
 
-        .slide h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; }
-        .slide p { font-size: 0.95rem; color: #9ca3af; max-width: 550px; line-height: 1.5; }
+        .slide h2 { font-size: 1.6rem; margin-bottom: 6px; color: #45f3ff; }
+        .slide p { font-size: 0.9rem; color: #9ca3af; max-width: 500px; }
 
         .slide-btn {
             position: absolute;
             top: 50%;
-            background-color: #16161f;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background-color: #171923;
+            border: 1px solid #45f3ff;
             color: white;
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            font-size: 1rem;
             cursor: pointer;
             z-index: 5;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .slide-prev { left: 20px; transform: translateY(-50%); }
-        .slide-next { right: 20px; transform: translateY(-50%); }
+        .slide-prev { left: 15px; transform: translateY(-50%); }
+        .slide-next { right: 15px; transform: translateY(-50%); }
 
-        /* Flexible Grid System Framework */
+        /* Flexible Center Grid Container */
         .grid-container {
-            max-width: 1000px;
+            max-width: 950px;
             margin: 0 auto;
-            transform: translateY(20px);
-            opacity: 0;
-            animation: contentRise 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
         }
 
         .grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             width: 100%;
         }
 
-        /* High-End Tech Game Card Shells */
+        /* Modern High-End Game Cards */
         .card {
-            background-color: #111116 !important;
-            border: 1px solid rgba(255, 255, 255, 0.05) !important;
-            border-radius: 16px !important;
-            overflow: hidden !important;
-            cursor: pointer !important;
-            width: calc(33.333% - 20px) !important;
-            min-width: 280px !important;
-            display: block !important; /* Forces visible rendering state */
-            flex-grow: 0 !important;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3) !important;
+            background-color: #171923;
+            border: 1px solid #23273a;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            width: calc(33.333% - 18px);
+            min-width: 270px;
+            flex-grow: 0;
         }
 
         .card:hover {
             transform: translateY(-4px) scale(1.02);
-            border-color: rgba(69, 243, 255, 0.3) !important;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+            border-color: #45f3ff;
         }
 
-        /* Clean Visual Placeholder Boxes */
         .card-banner {
-            height: 140px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            height: 130px;
+            border-bottom: 1px solid #23273a;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .banner-baldi { background: linear-gradient(135deg, #132519 0%, #08100a 100%); color: #4ade80; }
-        .banner-slope { background: linear-gradient(135deg, #141b2d 0%, #090c15 100%); color: #6366f1; }
-        .banner-lol { background: linear-gradient(135deg, #241435 0%, #100819 100%); color: #a855f7; }
+        .banner-baldi { background: linear-gradient(135deg, #182e1e 0%, #0d1a11 100%); color: #4ade80; }
+        .banner-slope { background: linear-gradient(135deg, #181f38 0%, #0d1121 100%); color: #6366f1; }
+        .banner-lol { background: linear-gradient(135deg, #2d183d 0%, #170d21 100%); color: #a855f7; }
 
-        .card-info { padding: 24px; }
-        .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: #ffffff; }
-        .card-desc { font-size: 0.9rem; color: #9ca3af; line-height: 1.5; }
+        .card-info { padding: 20px; }
+        .card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; }
+        .card-desc { font-size: 0.85rem; color: #9ca3af; line-height: 1.4; }
 
-        /* Dead-Centered Popup Modal Container */
+        /* Dead-Centered Popup Panel Overlay */
         .popup-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(3, 3, 5, 0.85);
-            backdrop-filter: blur(8px);
+            background-color: rgba(5, 5, 8, 0.85);
+            backdrop-filter: blur(6px);
             z-index: 100;
             display: flex;
             justify-content: center;
             align-items: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s ease;
+            transition: opacity 0.2s ease;
         }
 
         .popup-overlay.show {
@@ -226,16 +189,15 @@
         }
 
         .popup-window {
-            width: 90%;
-            max-width: 1050px;
-            height: 82vh;
-            background-color: #0b0c11;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
+            width: 88%;
+            max-width: 1000px;
+            height: 80vh;
+            background-color: #171923;
+            border: 1px solid #45f3ff;
+            border-radius: 16px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
             transform: scale(0.88);
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -245,47 +207,40 @@
         }
 
         .popup-header {
-            padding: 18px 28px;
+            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            background-color: #101117;
+            border-bottom: 1px solid #23273a;
+            background-color: #0f111a;
         }
 
-        .popup-header h2 { font-size: 1.15rem; font-weight: 700; }
+        .popup-header h2 { font-size: 1.1rem; }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 15px;
         }
 
         .fullscreen-btn {
-            background-color: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background-color: #23273a;
+            border: 1px solid #45f3ff;
             color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
-        }
-        .fullscreen-btn:hover {
-            border-color: rgba(69, 243, 255, 0.3);
-            background-color: rgba(69, 243, 255, 0.02);
         }
 
         .close-x {
             background: none;
             border: none;
             color: #ef4444;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: bold;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .game-wrapper {
@@ -299,10 +254,8 @@
             border: none;
         }
 
-        /* Enforced Hide Overwrite Parameters */
-        .grid .card.hide-item { 
-            display: none !important; 
-        }
+        /* Clean Hide layout logic */
+        .card.hidden { display: none !important; }
     </style>
 </head>
 <body>
@@ -310,9 +263,43 @@
     <header>
         <h1>Retro Games unblocked</h1>
         <div class="search-container">
-            <input type="text" id="gameSearch" class="search-box" placeholder="Search unblocked directories...">
+            <!-- Active Filter Bar -->
+            <input type="text" id="gameSearch" class="search-box" placeholder="Search available games...">
         </div>
     </header>
 
     <div class="slider-container">
         <button class="slide-btn slide-prev" onclick="moveSlider(-1)">❮</button>
+        <button class="slide-btn slide-next" onclick="moveSlider(1)">❯</button>
+        <div class="slider-track" id="sliderTrack">
+            <div class="slide" style="background-image: linear-gradient(rgba(12,13,20,0.7), rgba(12,13,20,0.7)), url('https://unsplash.com');">
+                <h2>Featured: Baldi's Basics</h2>
+                <p>Test your problem-solving capabilities under severe classroom pressure parameters.</p>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(12,13,20,0.7), rgba(12,13,20,0.7)), url('https://unsplash.com');">
+                <h2>Trending: Slope 3D</h2>
+                <p>Compete for the highest structural tracking distance down a fast shifting platform line.</p>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(12,13,20,0.7), rgba(12,13,20,0.7)), url('https://unsplash.com');">
+                <h2>Active: 1v1.LOL</h2>
+                <p>Master defensive mechanics and refine coordinate tracking targeting systems safely.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid">
+            
+            <!-- Game 1 -->
+            <div class="card" onclick="openGame('Baldi\'s Basics', 'https://itch.io')">
+                <div class="card-banner banner-baldi">BALDI // 01</div>
+                <div class="card-info">
+                    <h2 class="card-title">Baldi's Basics</h2>
+                    <p class="card-desc">Find all 7 notebooks and try to escape the school classroom setup.</p>
+                </div>
+            </div>
+
+            <!-- 100% UNBLOCKED CLOUD ENGINE ENDPOINT FOR SLOPE -->
+            <div class="card" onclick="openGame('Slope 3D', 'https://editmysite.com')">
+                <div class="card-banner banner-slope">SLOPE // 02</div>
+                <div class="card-info">
