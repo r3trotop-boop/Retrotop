@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Games Unblocked</title>
     <style>
-        /* Modern Minimalist Base */
+        /* Modern Premium Dark Base */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,29 +14,34 @@
         }
 
         body {
-            background-color: #050507;
+            background-color: #030305;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(30, 20, 50, 0.3) 0px, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(15, 25, 40, 0.3) 0px, transparent 50%);
             color: #fafafa;
             min-height: 100vh;
-            perspective: 1200px; /* Enables clean 3D rotation effects */
+            perspective: 1200px;
+            overflow-x: hidden;
         }
 
-        /* Premium Center-Aligned Navigation */
+        /* Center Header Layout */
         header {
-            padding: 40px 20px 20px 20px;
+            padding: 60px 20px 30px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 24px;
+            gap: 28px;
         }
 
         .main-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
             color: #ffffff;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
         }
 
-        /* Clean High-Contrast Search Bar */
+        /* Sleek Search Interface */
         .search-container {
             width: 100%;
             max-width: 480px;
@@ -44,63 +49,61 @@
 
         .search-input {
             width: 100%;
-            background-color: #0f0f12;
-            border: 1px solid #1c1c21;
-            padding: 14px 20px;
-            border-radius: 8px;
+            background-color: rgba(15, 15, 20, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 24px;
+            border-radius: 12px;
             color: #ffffff;
             font-size: 0.95rem;
             outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .search-input:focus {
-            border-color: #3e3e4a;
-            box-shadow: 0 0 0 1px #3e3e4a;
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.03);
         }
 
-        /* Main Content Grid */
+        /* Grid Framework */
         .main-container {
             max-width: 1100px;
-            margin: 40px auto;
+            margin: 30px auto;
             padding: 0 24px;
         }
 
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
+            gap: 30px;
         }
 
-        /* Premium Minimalist Game Cards */
+        /* Glassmorphism Game Cards */
         .game-directory-card {
-            background-color: #0f0f12;
-            border: 1px solid #1c1c21;
-            border-radius: 8px;
+            background-color: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
         }
 
         .game-directory-card:hover {
-            transform: translateY(-2px);
-            border-color: #3e3e4a;
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
         .card-cover {
-            height: 150px;
-            background-color: #141419;
-            border-bottom: 1px solid #1c1c21;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3e3e4a;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            background-color: #101014;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .card-content {
@@ -108,34 +111,34 @@
         }
 
         .game-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: #ffffff;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .game-description {
             font-size: 0.9rem;
-            color: #767680;
+            color: #8a8a93;
             line-height: 1.5;
         }
 
-        /* The Premium Slide-and-Rotate Full Screen Overlay */
+        /* 3D Slide-and-Rotate Player Pop-up Overlay */
         .player-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
             z-index: 100;
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: flex-end; /* Slides UP from the bottom */
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.35s ease;
+            transition: opacity 0.4s ease;
         }
 
         .player-overlay.active {
@@ -143,64 +146,74 @@
             pointer-events: auto;
         }
 
-        /* The Panel sliding up and rotating side-to-side */
+        /* The Slide Panel Container */
         .game-frame-panel {
-            width: 100%;
+            width: 95%;
             max-width: 1200px;
-            height: 88vh;
-            background-color: #050507;
-            border: 1px solid #1c1c21;
+            height: 90vh; /* Takes up most of the screen */
+            background-color: #08080a;
+            border: 1px solid rgba(255,255,255,0.08);
             border-bottom: none;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.8);
             
-            /* Initial closed position (Down, tilted back, and rotated slightly) */
-            transform: translateY(100%) rotateX(-10deg) rotateZ(-2deg);
+            /* Clean 3D Entrance Settings */
+            transform: translateY(100%) rotateX(-12deg) rotateZ(-2deg);
             transform-origin: bottom center;
-            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Active state: slides up smoothly and straightens perfectly */
         .player-overlay.active .game-frame-panel {
             transform: translateY(0) rotateX(0deg) rotateZ(0deg);
         }
 
+        /* Top Bar inside the Pop-up */
         .panel-top-nav {
             padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #1c1c21;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .panel-active-title {
-            font-size: 1.05rem;
-            font-weight: 600;
+        .panel-title-text {
+            font-size: 1.1rem;
+            font-weight: 700;
             color: #ffffff;
         }
 
+        /* Distinctive Exit Button */
         .exit-button {
-            background-color: #0f0f12;
-            color: #fafafa;
-            border: 1px solid #1c1c21;
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
             padding: 10px 20px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.15s ease, border-color 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
         }
 
         .exit-button:hover {
-            background-color: #141419;
-            border-color: #3e3e4a;
+            background-color: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+            transform: scale(1.02);
         }
 
+        /* The Frame Window Shell */
         .frame-wrapper {
             flex: 1;
             background-color: #000000;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            overflow: hidden;
         }
 
         iframe {
@@ -209,7 +222,6 @@
             border: none;
         }
 
-        /* Search Filtering helper classes */
         .game-directory-card.filter-hide {
             display: none !important;
         }
@@ -217,56 +229,57 @@
 </head>
 <body>
 
-    <!-- Center Clean Header -->
+    <!-- Transparent Premium Header -->
     <header>
         <h1 class="main-title">Retro Games unblocked</h1>
         <div class="search-container">
-            <input type="text" id="liveSearch" class="search-input" placeholder="Search available directories...">
+            <input type="text" id="liveSearch" class="search-input" placeholder="Search unblocked directories...">
         </div>
     </header>
 
     <div class="main-container">
         <div class="grid-layout" id="mainGrid">
             
-            <!-- Game Card 1 -->
+            <!-- Game 1: Baldi's Basics Classic -->
             <div class="game-directory-card" onclick="launchApp('Baldi\'s Basics Classic', 'https://itch.io')">
-                <div class="card-cover">File // 01</div>
+                <div class="card-cover" style="background-image: url('https://unsplash.com');"></div>
                 <div class="card-content">
                     <h2 class="game-title">Baldi's Basics</h2>
-                    <p class="game-description">Complete strategic math collection procedures inside the simulation environment.</p>
+                    <p class="game-description">Complete strategic math collection procedures inside the schoolhouse environment.</p>
                 </div>
             </div>
 
-            <!-- Game Card 2 -->
-            <div class="game-directory-card" onclick="launchApp('Slope 3D', 'https://kbhgames.com')">
-                <div class="card-cover">File // 02</div>
+            <!-- Game 2: Slope 3D (Optimized proxy embed setup) -->
+            <div class="game-directory-card" onclick="launchApp('Slope 3D', 'https://github.io')">
+                <div class="card-cover" style="background-image: url('https://unsplash.com');"></div>
                 <div class="card-content">
                     <h2 class="game-title">Slope 3D</h2>
-                    <p class="game-description">High-velocity mechanical ball tracking simulation down a moving pathway.</p>
+                    <p class="game-description">High-velocity kinetic ball tracking simulation down a moving physics pathway.</p>
                 </div>
             </div>
 
-            <!-- Game Card 3 -->
+            <!-- Game 3: 1v1.LOL (Unblocked web engine setup) -->
             <div class="game-directory-card" onclick="launchApp('1v1.LOL', 'https://1v1.lol')">
-                <div class="card-cover">File // 03</div>
+                <div class="card-cover" style="background-image: url('https://unsplash.com');"></div>
                 <div class="card-content">
                     <h2 class="game-title">1v1.LOL</h2>
-                    <p class="game-description">Competitive real-time structural configuration and system target practice.</p>
+                    <p class="game-description">Competitive real-time structural configuration and crosshair tracking practice.</p>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- The 3D Slide-and-Rotate Player Shell -->
+    <!-- The 3D Slide-and-Rotate Player Shell Pop-up -->
     <div class="player-overlay" id="globalOverlay">
         <div class="game-frame-panel">
             <div class="panel-top-nav">
-                <span class="panel-active-title" id="activeFrameTitle">System Loading...</span>
-                <button class="exit-button" onclick="closeApp()">Disconnect</button>
+                <span class="panel-title-text" id="activeFrameTitle">Loading Game Engine...</span>
+                <!-- The ✕ Exit Button -->
+                <button class="exit-button" onclick="closeApp()">✕ Close Game</button>
             </div>
             <div class="frame-wrapper">
-                <iframe id="displayFrame" src=""></iframe>
+                <iframe id="displayFrame" src="" allow="autoplay; gamepad; fullscreen;"></iframe>
             </div>
         </div>
     </div>
@@ -276,39 +289,3 @@
         const frameElement = document.getElementById('displayFrame');
         const titleElement = document.getElementById('activeFrameTitle');
         const inputField = document.getElementById('liveSearch');
-        const allCards = document.querySelectorAll('.game-directory-card');
-
-        // Fixed Robust Live Text Search Logic
-        inputField.addEventListener('input', () => {
-            const currentFilter = inputField.value.toLowerCase().trim();
-            
-            allCards.forEach(card => {
-                // Extracts the visible text directly inside the h2 element
-                const visualTitle = card.querySelector('.game-title').textContent.toLowerCase();
-                
-                if (visualTitle.includes(currentFilter)) {
-                    card.classList.remove('filter-hide');
-                </div> else {
-                    card.classList.add('filter-hide');
-                }
-            });
-        });
-
-        // Trigger Smooth 3D Slide-and-Tilt Rotation Entry
-        function launchApp(name, link) {
-            titleElement.textContent = name;
-            frameElement.src = link;
-            overlayElement.classList.add('active');
-        }
-
-        // Smooth Clean Exit Downward
-        function closeApp() {
-            overlayElement.classList.remove('active');
-            setTimeout(() => {
-                frameElement.src = "";
-            }, 300);
-        }
-    </script>
-
-</body>
-</html>
