@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Games Unblocked</title>
     <style>
-        /* Modern Premium Dark Base */
+        /* Modern Premium Layout Mechanics */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,23 +14,24 @@
         }
 
         body {
-            background-color: #030305;
+            background-color: #050508;
             background-image: 
-                radial-gradient(at 0% 0%, rgba(30, 20, 50, 0.3) 0px, transparent 50%),
-                radial-gradient(at 50% 0%, rgba(15, 25, 40, 0.3) 0px, transparent 50%);
-            color: #fafafa;
+                radial-gradient(at 0% 0%, rgba(35, 25, 60, 0.25) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(20, 35, 55, 0.25) 0px, transparent 50%);
+            color: #f5f5f7;
             min-height: 100vh;
-            perspective: 1200px;
+            perspective: 1500px; /* Essential for smooth 3D tilting panels */
             overflow-x: hidden;
+            padding-bottom: 60px;
         }
 
-        /* Center Header Layout */
+        /* Clean Header Layout */
         header {
-            padding: 60px 20px 30px 20px;
+            padding: 50px 20px 20px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 28px;
+            gap: 20px;
         }
 
         .main-title {
@@ -38,22 +39,21 @@
             font-weight: 800;
             letter-spacing: -1px;
             color: #ffffff;
-            text-shadow: 0 0 20px rgba(255,255,255,0.1);
+            text-align: center;
         }
 
-        /* Sleek Search Interface */
+        /* Responsive High-Contrast Search Bar */
         .search-container {
             width: 100%;
-            max-width: 480px;
+            max-width: 500px;
         }
 
         .search-input {
             width: 100%;
-            background-color: rgba(15, 15, 20, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 16px 24px;
-            border-radius: 12px;
+            background-color: #0f0f13;
+            border: 1px solid #22222a;
+            padding: 14px 20px;
+            border-radius: 10px;
             color: #ffffff;
             font-size: 0.95rem;
             outline: none;
@@ -61,11 +61,11 @@
         }
 
         .search-input:focus {
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.03);
+            border-color: #444452;
+            box-shadow: 0 0 0 1px #444452;
         }
 
-        /* Grid Framework */
+        /* Modern Visual Grid */
         .main-container {
             max-width: 1100px;
             margin: 30px auto;
@@ -75,67 +75,73 @@
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 28px;
         }
 
-        /* Glassmorphism Game Cards */
+        /* High-End Game Card Designs */
         .game-directory-card {
-            background-color: rgba(20, 20, 25, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            background-color: #0f0f13;
+            border: 1px solid #1c1c24;
+            border-radius: 14px;
             overflow: hidden;
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
         }
 
         .game-directory-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transform: translateY(-4px);
+            border-color: #3a3a46;
         }
 
+        /* Dynamic CSS Abstract Background Art Blocks */
         .card-cover {
-            height: 160px;
-            background-size: cover;
-            background-position: center;
-            background-color: #101014;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            height: 140px;
+            border-bottom: 1px solid #1c1c24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
+        .bg-baldi { background: linear-gradient(135deg, #1b3a24 0%, #0c1a10 100%); color: #4ade80; }
+        .bg-slope { background: linear-gradient(135deg, #1e1b4b 0%, #0f0e26 100%); color: #818cf8; }
+        .bg-lol { background: linear-gradient(135deg, #4c1d95 0%, #240e46 100%); color: #c084fc; }
 
         .card-content {
-            padding: 24px;
+            padding: 22px;
         }
 
         .game-title {
             font-size: 1.15rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .game-description {
             font-size: 0.9rem;
-            color: #8a8a93;
+            color: #888896;
             line-height: 1.5;
         }
 
-        /* 3D Slide-and-Rotate Player Pop-up Overlay */
+        /* Interactive 3D Slide-and-Rotate Overlay Pop-up */
         .player-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(12px);
             z-index: 100;
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Slides UP from the bottom */
+            align-items: flex-end; /* Keeps alignment matching your slide-up workflow */
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.4s ease;
@@ -146,74 +152,72 @@
             pointer-events: auto;
         }
 
-        /* The Slide Panel Container */
+        /* The Custom sliding app panel container */
         .game-frame-panel {
             width: 95%;
-            max-width: 1200px;
-            height: 90vh; /* Takes up most of the screen */
-            background-color: #08080a;
-            border: 1px solid rgba(255,255,255,0.08);
+            max-width: 1150px;
+            height: 88vh;
+            background-color: #0a0a0f;
+            border: 1px solid #22222a;
             border-bottom: none;
-            border-top-left-radius: 24px;
-            border-top-right-radius: 24px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 -20px 50px rgba(0,0,0,0.8);
+            box-shadow: 0 -15px 40px rgba(0,0,0,0.7);
             
-            /* Clean 3D Entrance Settings */
-            transform: translateY(100%) rotateX(-12deg) rotateZ(-2deg);
+            /* Initial Closed Position: Slid down, tilted back on X axis, and swung to the side on Z axis */
+            transform: translateY(100%) rotateX(-14deg) rotateZ(-3deg);
             transform-origin: bottom center;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* Active: Glides up smoothly and straightens dynamically */
         .player-overlay.active .game-frame-panel {
             transform: translateY(0) rotateX(0deg) rotateZ(0deg);
         }
 
-        /* Top Bar inside the Pop-up */
         .panel-top-nav {
-            padding: 20px 30px;
+            padding: 16px 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid #1c1c24;
         }
 
         .panel-title-text {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: #ffffff;
         }
 
-        /* Distinctive Exit Button */
+        /* Custom High-Visibility Close Button */
         .exit-button {
-            background-color: rgba(239, 68, 68, 0.1);
+            background-color: #16161f;
             color: #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 700;
+            border: 1px solid #2a1a1a;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 6px;
-            transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+            justify-content: center;
+            transition: all 0.2s ease;
         }
 
         .exit-button:hover {
-            background-color: rgba(239, 68, 68, 0.2);
+            background-color: #ef4444;
+            color: #ffffff;
             border-color: #ef4444;
-            transform: scale(1.02);
+            transform: rotate(90deg); /* Smooth spinning effect on hover */
         }
 
-        /* The Frame Window Shell */
         .frame-wrapper {
             flex: 1;
             background-color: #000000;
-            border-top-left-radius: 0px;
-            border-top-right-radius: 0px;
-            overflow: hidden;
         }
 
         iframe {
@@ -222,6 +226,7 @@
             border: none;
         }
 
+        /* Functional Filter utilities */
         .game-directory-card.filter-hide {
             display: none !important;
         }
@@ -229,11 +234,10 @@
 </head>
 <body>
 
-    <!-- Transparent Premium Header -->
     <header>
         <h1 class="main-title">Retro Games unblocked</h1>
         <div class="search-container">
-            <input type="text" id="liveSearch" class="search-input" placeholder="Search unblocked directories...">
+            <input type="text" id="liveSearch" class="search-input" placeholder="Search available directories...">
         </div>
     </header>
 
@@ -242,25 +246,25 @@
             
             <!-- Game 1: Baldi's Basics Classic -->
             <div class="game-directory-card" onclick="launchApp('Baldi\'s Basics Classic', 'https://itch.io')">
-                <div class="card-cover" style="background-image: url('https://unsplash.com');"></div>
+                <div class="card-cover bg-baldi">Directory // 01</div>
                 <div class="card-content">
                     <h2 class="game-title">Baldi's Basics</h2>
                     <p class="game-description">Complete strategic math collection procedures inside the schoolhouse environment.</p>
                 </div>
             </div>
 
-            <!-- Game 2: Slope 3D (Optimized proxy embed setup) -->
-            <div class="game-directory-card" onclick="launchApp('Slope 3D', 'https://github.io')">
-                <div class="card-cover" style="background-image: url('https://unsplash.com');"></div>
+            <!-- Game 2: Slope 3D (Optimized open embed endpoint) -->
+            <div class="game-directory-card" onclick="launchApp('Slope 3D', 'https://googleusercontent.com')">
+                <div class="card-cover bg-slope">Directory // 02</div>
                 <div class="card-content">
                     <h2 class="game-title">Slope 3D</h2>
                     <p class="game-description">High-velocity kinetic ball tracking simulation down a moving physics pathway.</p>
                 </div>
             </div>
 
-            <!-- Game 3: 1v1.LOL (Unblocked web engine setup) -->
-            <div class="game-directory-card" onclick="launchApp('1v1.LOL', 'https://1v1.lol')">
-                <div class="card-cover" style="background-image: url('https://unsplash.com');"></div>
+            <!-- Game 3: 1v1.LOL (Raw game frame engine clone) -->
+            <div class="game-directory-card" onclick="launchApp('1v1.LOL', 'https://googleusercontent.com')">
+                <div class="card-cover bg-lol">Directory // 03</div>
                 <div class="card-content">
                     <h2 class="game-title">1v1.LOL</h2>
                     <p class="game-description">Competitive real-time structural configuration and crosshair tracking practice.</p>
@@ -274,9 +278,9 @@
     <div class="player-overlay" id="globalOverlay">
         <div class="game-frame-panel">
             <div class="panel-top-nav">
-                <span class="panel-title-text" id="activeFrameTitle">Loading Game Engine...</span>
-                <!-- The ✕ Exit Button -->
-                <button class="exit-button" onclick="closeApp()">✕ Close Game</button>
+                <span class="panel-title-text" id="activeFrameTitle">System Initializing...</span>
+                <!-- The Core ✕ Exit Button -->
+                <button class="exit-button" onclick="closeApp()">✕</button>
             </div>
             <div class="frame-wrapper">
                 <iframe id="displayFrame" src="" allow="autoplay; gamepad; fullscreen;"></iframe>
@@ -288,4 +292,3 @@
         const overlayElement = document.getElementById('globalOverlay');
         const frameElement = document.getElementById('displayFrame');
         const titleElement = document.getElementById('activeFrameTitle');
-        const inputField = document.getElementById('liveSearch');
