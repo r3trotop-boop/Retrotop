@@ -23,7 +23,7 @@
             padding: 50px 20px;
             overflow-x: hidden;
             opacity: 0;
-            animation: globalFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: globalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes globalFadeIn {
@@ -33,8 +33,8 @@
         header {
             text-align: center;
             margin-bottom: 30px;
-            transform: translateY(-20px);
-            animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+            transform: translateY(-15px);
+            animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
         }
 
         @keyframes slideDown {
@@ -49,15 +49,15 @@
             color: #ffffff;
         }
 
-        /* Elastic Bounce Elastic Velocity Interactions for Elements */
+        /* Spring Velocity Elastic Bounce Mechanics */
         .btn-velocity, .card, .slide-btn {
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s;
         }
         .btn-velocity:hover, .slide-btn:hover {
-            transform: scale(1.12);
+            transform: scale(1.1);
         }
         .btn-velocity:active, .slide-btn:active {
-            transform: scale(0.95);
+            transform: scale(0.96);
         }
 
         /* Sleek Search Interface Wrapper */
@@ -94,9 +94,9 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             background-color: #111116;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transform: translateY(30px);
+            transform: translateY(20px);
             opacity: 0;
-            animation: contentRise 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            animation: contentRise 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
         }
 
         @keyframes contentRise {
@@ -107,7 +107,7 @@
             display: flex;
             width: 300%;
             height: 100%;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .slide {
@@ -144,16 +144,16 @@
         }
         .slide-prev { left: 20px; transform: translateY(-50%); }
         .slide-next { right: 20px; transform: translateY(-50%); }
-        .slide-prev:hover { transform: translateY(-50%) scale(1.12); }
-        .slide-next:hover { transform: translateY(-50%) scale(1.12); }
+        .slide-prev:hover { transform: translateY(-50%) scale(1.1); }
+        .slide-next:hover { transform: translateY(-50%) scale(1.1); }
 
         /* Flexible Grid System Framework */
         .grid-container {
             max-width: 1000px;
             margin: 0 auto;
-            transform: translateY(40px);
+            transform: translateY(20px);
             opacity: 0;
-            animation: contentRise 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+            animation: contentRise 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
         }
 
         .grid {
@@ -175,16 +175,11 @@
             min-width: 280px;
             flex-grow: 0;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            /* Soft entry transition on text filtering hide sequence */
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        background-color 0.2s, 
-                        border-color 0.2s, 
-                        opacity 0.2s, 
-                        scale 0.2s;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s, opacity 0.2s, scale 0.2s;
         }
 
         .card:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-4px) scale(1.02);
             border-color: rgba(69, 243, 255, 0.3);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
@@ -205,10 +200,6 @@
         .banner-slope { background: linear-gradient(135deg, #141b2d 0%, #090c15 100%); color: #6366f1; }
         .banner-lol { background: linear-gradient(135deg, #241435 0%, #100819 100%); color: #a855f7; }
 
-        .card-info { padding: 24px; }
-        .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: #ffffff; }
-        .card-desc { font-size: 0.9rem; color: #9ca3af; line-height: 1.5; }
-
         /* Dead-Centered Popup Modal Container */
         .popup-overlay {
             position: fixed;
@@ -224,7 +215,7 @@
             align-items: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s ease;
+            transition: opacity 0.2s ease;
         }
 
         .popup-overlay.show {
@@ -243,9 +234,8 @@
             flex-direction: column;
             overflow: hidden;
             box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-            
-            transform: scale(0.85);
-            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.88);
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .popup-overlay.show .popup-window {
@@ -310,7 +300,24 @@
         /* Smooth Hide Animation utility */
         .card.hidden { 
             opacity: 0;
-            transform: scale(0.8) translateY(20px);
+            transform: scale(0.8) translateY(15px);
             pointer-events: none;
             position: absolute;
             width: 0;
+            height: 0;
+            padding: 0;
+            margin: 0;
+            border: none;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Retro Games unblocked</h1>
+        <div class="search-container">
+            <input type="text" id="gameSearch" class="search-box" placeholder="Search unblocked directories...">
+        </div>
+    </header>
+
