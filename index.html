@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Retro Games Unblocked</title>
     <style>
-        /* Minimalist Modern Theme Layout */
+        /* Modern Minimalist Base */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,204 +14,191 @@
         }
 
         body {
-            background-color: #0a0a0c;
-            color: #ededed;
+            background-color: #050507;
+            color: #fafafa;
             min-height: 100vh;
-            overflow-x: hidden;
+            perspective: 1200px; /* Enables clean 3D rotation effects */
         }
 
-        /* Top Clean Navigation Bar */
+        /* Premium Center-Aligned Navigation */
         header {
-            background-color: #0a0a0c;
-            padding: 20px 40px;
+            padding: 40px 20px 20px 20px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            border-bottom: 1px solid #1f1f23;
-            position: sticky;
-            top: 0;
-            z-index: 10;
+            gap: 24px;
         }
 
-        .logo {
-            font-size: 1.1rem;
+        .main-title {
+            font-size: 1.75rem;
             font-weight: 700;
             letter-spacing: -0.5px;
             color: #ffffff;
-            text-transform: uppercase;
         }
 
-        /* Functional Clean Search Container */
-        .search-wrapper {
-            position: relative;
+        /* Clean High-Contrast Search Bar */
+        .search-container {
+            width: 100%;
+            max-width: 480px;
         }
 
-        .search-bar {
-            background-color: #121214;
-            border: 1px solid #1f1f23;
-            padding: 10px 18px;
-            border-radius: 6px;
-            width: 320px;
+        .search-input {
+            width: 100%;
+            background-color: #0f0f12;
+            border: 1px solid #1c1c21;
+            padding: 14px 20px;
+            border-radius: 8px;
             color: #ffffff;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             outline: none;
-            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .search-bar:focus {
-            border-color: #ffffff;
-            box-shadow: 0 0 0 1px #ffffff;
+        .search-input:focus {
+            border-color: #3e3e4a;
+            box-shadow: 0 0 0 1px #3e3e4a;
         }
 
-        /* Core Content Grid */
-        .container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 40px;
+        /* Main Content Grid */
+        .main-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 24px;
         }
 
-        .section-header {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #707075;
-            margin-bottom: 25px;
-        }
-
-        /* Snappy Responsive Grid Setup */
-        .games-grid {
+        .grid-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
         }
 
-        /* Ultra-Clean Game Items (No Cringe Styling) */
-        .game-card {
-            background-color: #121214;
-            border: 1px solid #1f1f23;
+        /* Premium Minimalist Game Cards */
+        .game-directory-card {
+            background-color: #0f0f12;
+            border: 1px solid #1c1c21;
             border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            will-change: transform, border-color;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
-                        border-color 0.2s ease;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
         }
 
-        .game-card:hover {
+        .game-directory-card:hover {
             transform: translateY(-2px);
-            border-color: #44444a;
+            border-color: #3e3e4a;
         }
 
-        .card-image-placeholder {
-            height: 140px;
-            background-color: #16161a;
-            border-bottom: 1px solid #1f1f23;
+        .card-cover {
+            height: 150px;
+            background-color: #141419;
+            border-bottom: 1px solid #1c1c21;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #44444a;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 1px;
+            color: #3e3e4a;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
-        .card-details {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+        .card-content {
+            padding: 24px;
         }
 
         .game-title {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #ffffff;
+            margin-bottom: 6px;
         }
 
         .game-description {
-            font-size: 0.88rem;
-            color: #88888e;
-            line-height: 1.4;
+            font-size: 0.9rem;
+            color: #767680;
+            line-height: 1.5;
         }
 
-        /* The Premium Slide-Up Panel */
-        .modal-overlay {
+        /* The Premium Slide-and-Rotate Full Screen Overlay */
+        .player-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
             z-index: 100;
             display: flex;
             justify-content: center;
             align-items: flex-end;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.35s ease;
         }
 
-        .modal-overlay.active {
+        .player-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
 
-        .slide-panel {
+        /* The Panel sliding up and rotating side-to-side */
+        .game-frame-panel {
             width: 100%;
             max-width: 1200px;
-            height: 90vh;
-            background-color: #0a0a0c;
-            border: 1px solid #1f1f23;
+            height: 88vh;
+            background-color: #050507;
+            border: 1px solid #1c1c21;
             border-bottom: none;
             border-top-left-radius: 12px;
             border-top-right-radius: 12px;
             display: flex;
             flex-direction: column;
-            transform: translateY(100%);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* Initial closed position (Down, tilted back, and rotated slightly) */
+            transform: translateY(100%) rotateX(-10deg) rotateZ(-2deg);
+            transform-origin: bottom center;
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .modal-overlay.active .slide-panel {
-            transform: translateY(0);
+        /* Active state: slides up smoothly and straightens perfectly */
+        .player-overlay.active .game-frame-panel {
+            transform: translateY(0) rotateX(0deg) rotateZ(0deg);
         }
 
-        .panel-menu {
-            padding: 18px 30px;
+        .panel-top-nav {
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #1f1f23;
+            border-bottom: 1px solid #1c1c21;
         }
 
-        .panel-title {
-            font-size: 1.1rem;
+        .panel-active-title {
+            font-size: 1.05rem;
             font-weight: 600;
             color: #ffffff;
         }
 
-        .close-button {
-            background-color: #121214;
-            color: #ededed;
-            border: 1px solid #1f1f23;
-            padding: 8px 16px;
-            border-radius: 4px;
+        .exit-button {
+            background-color: #0f0f12;
+            color: #fafafa;
+            border: 1px solid #1c1c21;
+            padding: 10px 20px;
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 500;
             cursor: pointer;
             transition: background-color 0.15s ease, border-color 0.15s ease;
         }
 
-        .close-button:hover {
-            background-color: #1c1c21;
-            border-color: #44444a;
+        .exit-button:hover {
+            background-color: #141419;
+            border-color: #3e3e4a;
         }
 
-        .iframe-container {
+        .frame-wrapper {
             flex: 1;
             background-color: #000000;
         }
@@ -222,107 +209,106 @@
             border: none;
         }
 
-        /* Smoothly hide items that don't match the search */
-        .game-card.hidden {
-            display: none;
+        /* Search Filtering helper classes */
+        .game-directory-card.filter-hide {
+            display: none !important;
         }
     </style>
 </head>
 <body>
 
+    <!-- Center Clean Header -->
     <header>
-        <div class="logo">Network Portal</div>
-        <div class="search-wrapper">
-            <!-- Active Search Bar -->
-            <input type="text" id="searchBar" class="search-bar" placeholder="Filter directories...">
+        <h1 class="main-title">Retro Games unblocked</h1>
+        <div class="search-container">
+            <input type="text" id="liveSearch" class="search-input" placeholder="Search available directories...">
         </div>
     </header>
 
-    <div class="container">
-        <h2 class="section-header">Available Directories</h2>
-        
-        <div class="games-grid" id="gamesGrid">
+    <div class="main-container">
+        <div class="grid-layout" id="mainGrid">
             
-            <!-- Directory item 1 -->
-            <div class="game-card" data-name="baldis basics classic" onclick="openEngine('Baldi\'s Basics Classic', 'https://itch.io')">
-                <div class="card-image-placeholder">Directory // 01</div>
-                <div class="card-details">
-                    <div class="game-title">Baldi's Basics</div>
-                    <div class="game-description">Strategic notebook collection simulation. Avoid contact with faculty agents.</div>
+            <!-- Game Card 1 -->
+            <div class="game-directory-card" onclick="launchApp('Baldi\'s Basics Classic', 'https://itch.io')">
+                <div class="card-cover">File // 01</div>
+                <div class="card-content">
+                    <h2 class="game-title">Baldi's Basics</h2>
+                    <p class="game-description">Complete strategic math collection procedures inside the simulation environment.</p>
                 </div>
             </div>
 
-            <!-- Directory item 2 -->
-            <div class="game-card" data-name="slope 3d" onclick="openEngine('Slope 3D', 'https://kbhgames.com')">
-                <div class="card-image-placeholder">Directory // 02</div>
-                <div class="card-details">
-                    <div class="game-title">Slope 3D</div>
-                    <div class="game-description">High-velocity kinetic sphere tracking. Avoid structural alignment parameters.</div>
+            <!-- Game Card 2 -->
+            <div class="game-directory-card" onclick="launchApp('Slope 3D', 'https://kbhgames.com')">
+                <div class="card-cover">File // 02</div>
+                <div class="card-content">
+                    <h2 class="game-title">Slope 3D</h2>
+                    <p class="game-description">High-velocity mechanical ball tracking simulation down a moving pathway.</p>
                 </div>
             </div>
 
-            <!-- Directory item 3 -->
-            <div class="game-card" data-name="1v1 lol" onclick="openEngine('1v1.LOL', 'https://1v1.lol')">
-                <div class="card-image-placeholder">Directory // 03</div>
-                <div class="card-details">
-                    <div class="game-title">1v1.LOL</div>
-                    <div class="game-description">Competitive real-time architecture and mechanical tracking module.</div>
+            <!-- Game Card 3 -->
+            <div class="game-directory-card" onclick="launchApp('1v1.LOL', 'https://1v1.lol')">
+                <div class="card-cover">File // 03</div>
+                <div class="card-content">
+                    <h2 class="game-title">1v1.LOL</h2>
+                    <p class="game-description">Competitive real-time structural configuration and system target practice.</p>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- The Slide-Up Player Overlay -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="slide-panel">
-            <div class="panel-menu">
-                <span class="panel-title" id="currentPanelTitle">Initialising...</span>
-                <button class="close-button" onclick="closeEngine()">Disconnect</button>
+    <!-- The 3D Slide-and-Rotate Player Shell -->
+    <div class="player-overlay" id="globalOverlay">
+        <div class="game-frame-panel">
+            <div class="panel-top-nav">
+                <span class="panel-active-title" id="activeFrameTitle">System Loading...</span>
+                <button class="exit-button" onclick="closeApp()">Disconnect</button>
             </div>
-            <div class="iframe-container">
-                <iframe id="appFrame" src=""></iframe>
+            <div class="frame-wrapper">
+                <iframe id="displayFrame" src=""></iframe>
             </div>
         </div>
     </div>
 
     <script>
-        const modal = document.getElementById('modalOverlay');
-        const iframe = document.getElementById('appFrame');
-        const headline = document.getElementById('currentPanelTitle');
-        const searchInput = document.getElementById('searchBar');
-        const cards = document.querySelectorAll('.game-card');
+        const overlayElement = document.getElementById('globalOverlay');
+        const frameElement = document.getElementById('displayFrame');
+        const titleElement = document.getElementById('activeFrameTitle');
+        const inputField = document.getElementById('liveSearch');
+        const allCards = document.querySelectorAll('.game-directory-card');
 
-        // Dynamic Instant Search Logic (Runs on keystroke)
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
+        // Fixed Robust Live Text Search Logic
+        inputField.addEventListener('input', () => {
+            const currentFilter = inputField.value.toLowerCase().trim();
             
-            cards.forEach(card => {
-                const gameName = card.getAttribute('data-name');
-                if (gameName.includes(query)) {
-                    card.classList.remove('hidden');
+            allCards.forEach(card => {
+                // Extracts the visible text directly inside the h2 element
+                const visualTitle = card.querySelector('.game-title').textContent.toLowerCase();
+                
+                if (visualTitle.includes(currentFilter)) {
+                    card.classList.remove('filter-hide');
                 </div> else {
-                    card.classList.add('hidden');
+                    card.classList.add('filter-hide');
                 }
             });
         });
 
-        // Trigger Smooth Slide Up
-        function openEngine(title, link) {
-            headline.textContent = title;
-            iframe.src = link;
-            modal.classList.add('active');
+        // Trigger Smooth 3D Slide-and-Tilt Rotation Entry
+        function launchApp(name, link) {
+            titleElement.textContent = name;
+            frameElement.src = link;
+            overlayElement.classList.add('active');
         }
 
-        // Clean Interruption
-        function closeEngine() {
-            modal.classList.remove('active');
+        // Smooth Clean Exit Downward
+        function closeApp() {
+            overlayElement.classList.remove('active');
             setTimeout(() => {
-                iframe.src = "";
-            }, 250);
+                frameElement.src = "";
+            }, 300);
         }
     </script>
 
 </body>
 </html>
-
