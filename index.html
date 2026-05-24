@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Games Unblocked</title>
     <style>
-        /* Modern Premium Minimalist Layout Theme */
+        /* Modern Premium Minimalist Layout Theme - LOCKED IN UI STYLE */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -41,8 +41,11 @@
         .btn-velocity, .card {
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s;
         }
-        .btn-velocity:hover, .card:hover {
-            transform: scale(1.05);
+        .btn-velocity:hover {
+            transform: scale(1.1);
+        }
+        .card:hover {
+            transform: scale(1.04);
         }
         .btn-velocity:active, .card:active {
             transform: scale(0.96);
@@ -85,7 +88,7 @@
             width: 100%;
         }
 
-        /* Premium Tech Card Styling */
+        /* Premium Tech Card Styling with Dynamic Image Integration */
         .card {
             background-color: #111116;
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -96,6 +99,8 @@
             min-width: 260px;
             flex-grow: 0;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -103,21 +108,66 @@
             box-shadow: 0 15px 30px rgba(69, 243, 255, 0.05);
         }
 
-        .card-banner {
-            height: 110px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #161622 0%, #0d0d14 100%);
+        /* HIGH RESOLUTION GAME PICTURE SLOTS */
+        .card-image-box {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            background-color: #161622;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .card-info { padding: 18px; }
-        .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; }
-        .card-desc { font-size: 0.85rem; color: #9ca3af; line-height: 1.4; }
+        .card-info { 
+            padding: 18px; 
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
 
-        /* FIXED UNBLOCKABLE OVERLAY POPUP LAYER */
+        .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; }
+        .card-desc { font-size: 0.85rem; color: #9ca3af; line-height: 1.4; margin-bottom: 14px; flex-grow: 1; }
+
+        /* THE LIKE AND DISLIKE RATING SYSTEM LAYOUT */
+        .rating-panel {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 12px;
+            margin-top: auto;
+        }
+
+        .rating-btn {
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #a1a1aa;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .rating-btn:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+        }
+        .like-btn:hover, .like-btn.voted {
+            border-color: rgba(74, 222, 128, 0.4);
+            color: #4ade80 !important;
+            background-color: rgba(74, 222, 128, 0.05);
+        }
+        .dislike-btn:hover, .dislike-btn.voted {
+            border-color: rgba(239, 68, 68, 0.4);
+            color: #ef4444 !important;
+            background-color: rgba(239, 68, 68, 0.05);
+        }
+
+        /* HARDCODED POPUP STYLING LAYER - STOPS ACCIDENTAL RENDERING BLOCKS */
         #fixedOverlay {
             position: fixed;
             top: 0;
@@ -127,7 +177,7 @@
             background-color: rgba(3, 3, 5, 0.95);
             backdrop-filter: blur(12px);
             z-index: 999999;
-            display: none; /* Controlled cleanly by script engine link hooks */
+            display: none !important; /* Forced active display properties run via code links */
             justify-content: center;
             align-items: center;
         }
@@ -143,7 +193,6 @@
             flex-direction: column;
             overflow: hidden;
             box-shadow: 0 25px 60px rgba(0,0,0,0.8);
-            transform: scale(1);
         }
 
         #fixedHeader {
@@ -213,79 +262,29 @@
         <div class="grid">
             
             <!-- Game 1: Eaglercraft -->
-            <div class="card" onclick="launchEngine('Eaglercraft (Minecraft)', 'https://github.io')">
-                <div class="card-banner">⛏️</div>
+            <div class="card" data-id="retro_eaglercraft" onclick="openGame('Eaglercraft (Minecraft)', 'https://github.io')">
+                <div class="card-image-box" style="background-image: url('https://unsplash.com');"></div>
                 <div class="card-info">
                     <h2 class="card-title">Eaglercraft</h2>
                     <p class="card-desc">Full web-based multiplayer Minecraft clone. Explore, mine, and build blocks.</p>
+                    <div class="rating-panel">
+                        <button class="rating-btn like-btn" onclick="registerGlobalVote(event, 'retro_eaglercraft', 'like')">👍 <span class="count">0</span></button>
+                        <button class="rating-btn dislike-btn" onclick="registerGlobalVote(event, 'retro_eaglercraft', 'dislike')">👎 <span class="count">0</span></button>
+                    </div>
                 </div>
             </div>
 
             <!-- Game 2: Red Ball 4 -->
-            <div class="card" onclick="launchEngine('Red Ball 4', 'https://github.io')">
-                <div class="card-banner">🔴</div>
+            <div class="card" data-id="retro_redball4" onclick="openGame('Red Ball 4', 'https://github.io')">
+                <div class="card-image-box" style="background-image: url('https://unsplash.com');"></div>
                 <div class="card-info">
                     <h2 class="card-title">Red Ball 4</h2>
                     <p class="card-desc">Roll, jump, and bounce through dangerous obstacles to defeat the evil squares.</p>
+                    <div class="rating-panel">
+                        <button class="rating-btn like-btn" onclick="registerGlobalVote(event, 'retro_redball4', 'like')">👍 <span class="count">0</span></button>
+                        <button class="rating-btn dislike-btn" onclick="registerGlobalVote(event, 'retro_redball4', 'dislike')">👎 <span class="count">0</span></button>
+                    </div>
                 </div>
             </div>
 
             <!-- Game 3: Run 3 -->
-            <div class="card" onclick="launchEngine('Run 3', 'https://github.io')">
-                <div class="card-banner">🏃</div>
-                <div class="card-info">
-                    <h2 class="card-title">Run 3</h2>
-                    <p class="card-desc">The ultimate Coolmath puzzle runner. Race across falling tiles out in deep space.</p>
-                </div>
-            </div>
-
-            <!-- Game 4: Fireboy and Watergirl -->
-            <div class="card" onclick="launchEngine('Fireboy & Watergirl: Forest Temple', 'https://github.io')">
-                <div class="card-banner">🔥</div>
-                <div class="card-info">
-                    <h2 class="card-title">Fireboy & Watergirl</h2>
-                    <p class="card-desc">Control both characters to solve unique environmental temple puzzles.</p>
-                </div>
-            </div>
-
-            <!-- Game 5: Papa's Pizzeria -->
-            <div class="card" onclick="launchEngine('Papa\'s Pizzeria', 'https://github.io')">
-                <div class="card-banner">🍕</div>
-                <div class="card-info">
-                    <h2 class="card-title">Papa's Pizzeria</h2>
-                    <p class="card-desc">Bake pizza crusts, stack toppings, and manage the kitchen to keep customers happy.</p>
-                </div>
-            </div>
-
-            <!-- Game 6: Baldi's Basics -->
-            <div class="card" onclick="launchEngine('Baldi\'s Basics', 'https://itch.io')">
-                <div class="card-banner">📐</div>
-                <div class="card-info">
-                    <h2 class="card-title">Baldi's Basics</h2>
-                    <p class="card-desc">Collect all 7 hidden notebooks and run away from the math teacher.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- PURE INTEGRATED IMMERSIVE MODAL WORKSPACE -->
-    <div id="fixedOverlay">
-        <div id="fixedWindow">
-            <div id="fixedHeader">
-                <h2 id="fixedTitle">Loading Game Frame...</h2>
-                <div class="header-actions">
-                    <button class="fullscreen-btn btn-velocity" onclick="expandView()">⛶ Fullscreen</button>
-                    <button class="close-x btn-velocity" onclick="collapseView()">✕</button>
-                </div>
-            </div>
-            <div id="fixedGameWrapper">
-                <iframe id="fixedIframe" src="" allow="autoplay; fullscreen; gamepad;"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const searchInput = document.getElementById('gameSearch');
-        const cards = document.querySelectorAll('.card');
-        
