@@ -71,7 +71,7 @@
             box-shadow: 0 0 25px rgba(69, 243, 255, 0.1);
         }
 
-        /* Flexible Grid System Framework (12 Game Cards) */
+        /* Flexible Grid System Framework */
         .grid-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -92,8 +92,8 @@
             border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            width: calc(25% - 20px);
-            min-width: 240px;
+            width: calc(33.333% - 20px);
+            min-width: 260px;
             flex-grow: 0;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
@@ -117,7 +117,7 @@
         .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; }
         .card-desc { font-size: 0.85rem; color: #9ca3af; line-height: 1.4; }
 
-        /* Dead-Centered Screen Popup Windows Frame System Fix */
+        /* Dead-Centered Screen Popup Windows */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -127,12 +127,11 @@
             background-color: rgba(3, 3, 5, 0.92);
             backdrop-filter: blur(10px);
             z-index: 99999;
-            display: none; /* Hidden on initialization */
+            display: none;
             justify-content: center;
             align-items: center;
         }
 
-        /* Enforced visibility bypass state display profile */
         .popup-overlay.active-view {
             display: flex !important;
         }
@@ -222,71 +221,71 @@
     <div class="grid-container">
         <div class="grid">
             
-            <!-- Game 1: Baldi -->
-            <div class="card" onclick="openGame('Baldi\'s Basics', 'https://itch.io')">
-                <div class="card-banner">📐</div>
+            <!-- Game 1: Eaglecraft (Minecraft Web) -->
+            <div class="card" onclick="openGame('Eaglecraft (Minecraft)', 'https://vseigru.net')">
+                <div class="card-banner">⛏️</div>
                 <div class="card-info">
-                    <h2 class="card-title">Baldi's Basics</h2>
-                    <p class="card-desc">Find all 7 notebooks and try to escape the classroom.</p>
+                    <h2 class="card-title">Eaglecraft</h2>
+                    <p class="card-desc">Full web-based multiplayer Minecraft clone. Explore, mine, and build blocks.</p>
                 </div>
             </div>
 
-            <!-- Game 2: Slope (Bypasses browser CORS blocks) -->
-            <div class="card" onclick="openGame('Slope 3D', 'https://github.io')">
-                <div class="card-banner">🟢</div>
+            <!-- Game 2: Red Ball 4 -->
+            <div class="card" onclick="openGame('Red Ball 4', 'https://github.io')">
+                <div class="card-banner">🔴</div>
                 <div class="card-info">
-                    <h2 class="card-title">Slope 3D</h2>
-                    <p class="card-desc">Keep rolling down the fast tracks without crashing.</p>
+                    <h2 class="card-title">Red Ball 4</h2>
+                    <p class="card-desc">Roll, jump, and bounce through dangerous obstacles to defeat the evil squares.</p>
                 </div>
             </div>
 
-            <!-- Game 3: 1v1.LOL (Bypasses browser CORS blocks) -->
-            <div class="card" onclick="openGame('1v1.LOL', 'https://github.io')">
-                <div class="card-banner">🔫</div>
-                <div class="card-info">
-                    <h2 class="card-title">1v1.LOL</h2>
-                    <p class="card-desc">Build layouts and practice multi-tracking battle target routines.</p>
-                </div>
-            </div>
-
-            <!-- Game 4: Tunnel Rush -->
-            <div class="card" onclick="openGame('Tunnel Rush', 'https://github.io')">
-                <div class="card-banner">🌀</div>
-                <div class="card-info">
-                    <h2 class="card-title">Tunnel Rush</h2>
-                    <p class="card-desc">Blaze through swirling 3D color tubes dodging obstacles.</p>
-                </div>
-            </div>
-
-            <!-- Game 5: Retro Bowl -->
-            <div class="card" onclick="openGame('Retro Bowl', 'https://github.io')">
-                <div class="card-banner">🏈</div>
-                <div class="card-info">
-                    <h2 class="card-title">Retro Bowl</h2>
-                    <p class="card-desc">Manage your team and quarterback your roster to victory.</p>
-                </div>
-            </div>
-
-            <!-- Game 6: Run 3 -->
+            <!-- Game 3: Run 3 (Coolmath Classic) -->
             <div class="card" onclick="openGame('Run 3', 'https://github.io')">
                 <div class="card-banner">🏃</div>
                 <div class="card-info">
                     <h2 class="card-title">Run 3</h2>
-                    <p class="card-desc">Sprint and jump through deep tunnels floating out in space.</p>
+                    <p class="card-desc">The ultimate Coolmath puzzle runner. Race across falling tiles out in deep space.</p>
                 </div>
             </div>
 
-            <!-- Game 7: Tetris -->
-            <div class="card" onclick="openGame('Tetris', 'https://github.io')">
-                <div class="card-banner">🧱</div>
+            <!-- Game 4: Fireboy and Watergirl -->
+            <div class="card" onclick="openGame('Fireboy & Watergirl: Forest Temple', 'https://github.io')">
+                <div class="card-banner">🔥</div>
                 <div class="card-info">
-                    <h2 class="card-title">Tetris</h2>
-                    <p class="card-desc">Clear lines by grouping falling geometric pixel matrix blocks.</p>
+                    <h2 class="card-title">Fireboy & Watergirl</h2>
+                    <p class="card-desc">Control both characters to solve unique environmental temple puzzles.</p>
                 </div>
             </div>
 
-            <!-- Game 8: Pac-Man -->
-            <div class="card" onclick="openGame('Pac-Man', 'https://github.io')">
+            <!-- Game 5: Papa's Pizzeria -->
+            <div class="card" onclick="openGame('Papa\'s Pizzeria', 'https://github.io')">
                 <div class="card-banner">🍕</div>
                 <div class="card-info">
-                    <h2 class="card-title">Pac-Man</h2>
+                    <h2 class="card-title">Papa's Pizzeria</h2>
+                    <p class="card-desc">Bake pizza crusts, stack toppings, and manage the kitchen to keep customers happy.</p>
+                </div>
+            </div>
+
+            <!-- Game 6: Baldi's Basics -->
+            <div class="card" onclick="openGame('Baldi\'s Basics', 'https://itch.io')">
+                <div class="card-banner">📐</div>
+                <div class="card-info">
+                    <h2 class="card-title">Baldi's Basics</h2>
+                    <p class="card-desc">Collect all 7 hidden notebooks and run away from the math teacher.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Centered Popup Layout System -->
+    <div class="popup-overlay" id="playerOverlay">
+        <div class="popup-window" id="popupWindow">
+            <div class="popup-header">
+                <h2 id="popupTitle">Loading Engine...</h2>
+                <div class="header-actions">
+                    <button class="fullscreen-btn btn-velocity" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+                    <button class="close-x btn-velocity" onclick="closeGame()">✕</button>
+                </div>
+            </div>
+            <div class="game-wrapper" id="gameArea">
