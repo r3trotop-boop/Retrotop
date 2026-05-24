@@ -5,75 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Games Unblocked</title>
     <style>
-        /* Modern Clean Base Layout */
+        /* Modern Premium Dark Workspace Setup */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            background-color: #0b0c10;
-            color: #ffffff;
-            padding: 40px 20px;
+            background-color: #030306;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(69, 243, 255, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(192, 132, 252, 0.08) 0px, transparent 50%);
+            color: #f3f4f6;
+            min-height: 100vh;
+            padding: 50px 20px;
+            overflow-x: hidden;
         }
 
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff 30%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Spring Velocity (Elastic Bounce) for ALL Buttons and Interactive Cards */
+        /* Spring Velocity Bounce Mechanics for UI Buttons */
         .btn-velocity, .card, .slide-btn {
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
         }
         .btn-velocity:hover, .slide-btn:hover {
-            transform: scale(1.15); /* Snappy bounce scale up */
+            transform: scale(1.12);
         }
         .btn-velocity:active, .slide-btn:active {
-            transform: scale(0.95); /* Compress on click */
+            transform: scale(0.95);
+        }
+
+        /* Sleek Glass Search Bar */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
         }
 
         .search-box {
             width: 100%;
-            max-width: 450px;
-            padding: 12px 20px;
-            background-color: #1f2833;
-            border: 1px solid #45f3ff;
-            border-radius: 8px;
+            max-width: 480px;
+            padding: 14px 24px;
+            background-color: rgba(22, 22, 29, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
             color: white;
-            font-size: 1rem;
+            font-size: 0.95rem;
             outline: none;
-            transition: all 0.2s;
         }
         .search-box:focus {
-            box-shadow: 0 0 15px rgba(69, 243, 255, 0.3);
+            border-color: rgba(69, 243, 255, 0.4);
+            box-shadow: 0 0 25px rgba(69, 243, 255, 0.1);
         }
 
-        /* Featured Game Image/Banner Slider Component */
+        /* Premium Glass Banner Slider */
         .slider-container {
             position: relative;
             max-width: 1000px;
-            height: 220px;
-            margin: 0 auto 40px auto;
-            border-radius: 12px;
+            height: 240px;
+            margin: 40px auto;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid #2f3e46;
-            background-color: #1f2833;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: rgba(17, 17, 24, 0.4);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .slider-track {
             display: flex;
             width: 300%;
             height: 100%;
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .slide {
@@ -82,88 +101,102 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 60px;
+            padding: 0 80px;
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
-            background-color: rgba(11, 12, 16, 0.75);
+            background-color: rgba(10, 10, 15, 0.8);
         }
 
-        .slide h2 { font-size: 1.8rem; margin-bottom: 5px; color: #45f3ff; }
-        .slide p { font-size: 0.95rem; color: #cbd5e1; max-width: 500px; }
+        .slide h2 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; color: #ffffff; }
+        .slide p { font-size: 0.95rem; color: #9ca3af; max-width: 550px; line-height: 1.5; }
 
         .slide-btn {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(31, 40, 51, 0.8);
-            border: 1px solid #45f3ff;
+            background-color: rgba(22, 22, 29, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 1.1rem;
             cursor: pointer;
             z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .slide-prev { left: 15px; }
-        .slide-next { right: 15px; }
-        /* Keep vertical centering adjustments intact during hover scales */
-        .slide-prev:hover { transform: translateY(-50%) scale(1.15); }
-        .slide-next:hover { transform: translateY(-50%) scale(1.15); }
+        .slide-prev { left: 20px; transform: translateY(-50%); }
+        .slide-next { right: 20px; transform: translateY(-50%); }
+        .slide-prev:hover { transform: translateY(-50%) scale(1.12); border-color: rgba(255,255,255,0.2); }
+        .slide-next:hover { transform: translateY(-50%) scale(1.12); border-color: rgba(255,255,255,0.2); }
 
-        /* Game Grid Framework */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+        /* Flexible Grid Framework (Fixes Broken Layout Constraints) */
+        .grid-container {
             max-width: 1000px;
             margin: 0 auto;
         }
 
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* Glassmorphic Game Card Modules */
         .card {
-            background-color: #1f2833;
-            border-radius: 10px;
+            background-color: rgba(22, 22, 29, 0.4);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 18px;
             overflow: hidden;
             cursor: pointer;
-            border: 1px solid #2f3e46;
+            width: calc(33.333% - 20px);
+            min-width: 280px;
+            flex-grow: 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
         .card:hover {
-            transform: translateY(-5px) scale(1.03);
-            border-color: #45f3ff;
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(69, 243, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(69, 243, 255, 0.05);
         }
 
         .card-banner {
-            height: 130px;
-            background-color: #0b0c10;
+            height: 140px;
+            background-color: rgba(10, 10, 15, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 3.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        .card-info { padding: 15px; }
-        .card-title { font-size: 1.15rem; margin-bottom: 5px; }
-        .card-desc { font-size: 0.85rem; color: #95a5a6; line-height: 1.4; }
+        .card-info { padding: 24px; }
+        .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: #ffffff; }
+        .card-desc { font-size: 0.9rem; color: #9ca3af; line-height: 1.5; }
 
-        /* Centered Overlay Container */
+        /* Dead-Centered Modal View Shell */
         .popup-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(4px);
+            background-color: rgba(3, 3, 6, 0.85);
+            backdrop-filter: blur(12px);
             z-index: 100;
             display: flex;
             justify-content: center;
-            align-items: center; /* Dead-Center alignment */
+            align-items: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s ease;
+            transition: opacity 0.3s ease;
         }
 
         .popup-overlay.show {
@@ -171,67 +204,75 @@
             pointer-events: auto;
         }
 
-        /* Centered Scaling Popup Window Shell */
+        /* Expanding Pop-up Card Hulls */
         .popup-window {
             width: 90%;
-            max-width: 1000px;
-            height: 80vh;
-            background-color: #1f2833;
-            border: 1px solid #45f3ff;
-            border-radius: 16px;
+            max-width: 1100px;
+            height: 82vh;
+            background-color: #0b0c11;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7);
             
-            /* Closes to the middle using scale transformations */
-            transform: scale(0.7);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.85);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .popup-overlay.show .popup-window {
-            transform: scale(1); /* Snaps open into the center framework */
+            transform: scale(1);
         }
 
         .popup-header {
-            padding: 15px 25px;
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #2f3e46;
-            background-color: #151c24;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            background-color: #101117;
         }
+
+        .popup-header h2 { font-size: 1.2rem; font-weight: 700; }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
         }
 
-        /* Top Action Buttons (Fullscreen + Close) */
+        /* Action Buttons Styling */
         .fullscreen-btn {
-            background-color: #2f3e46;
-            border: 1px solid #45f3ff;
-            color: #45f3ff;
-            padding: 6px 14px;
-            border-radius: 6px;
+            background-color: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 8px;
             font-size: 0.85rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
+        }
+        .fullscreen-btn:hover {
+            border-color: rgba(69, 243, 255, 0.4);
+            background-color: rgba(69, 243, 255, 0.05);
         }
 
         .close-x {
             background: none;
             border: none;
-            color: #ff4d4d;
-            font-size: 1.6rem;
-            font-weight: bold;
+            color: #ef4444;
+            font-size: 1.7rem;
+            font-weight: 500;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .game-wrapper {
             flex: 1;
-            background-color: black;
-            position: relative;
+            background-color: #000000;
         }
 
         iframe {
@@ -240,63 +281,25 @@
             border: none;
         }
 
-        .hidden { display: none !important; }
+        /* Clean Search Utility (Prevents broken layout gaps) */
+        .card.hidden { display: none !important; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Retro Games unblocked</h1>
-        <input type="text" id="gameSearch" class="search-box" placeholder="Type a game name...">
+        <div class="search-container">
+            <input type="text" id="gameSearch" class="search-box" placeholder="Search unblocked directories...">
+        </div>
     </header>
 
-    <!-- The Requested Banner Slider Component -->
+    <!-- Premium Glass Banner Slider -->
     <div class="slider-container">
         <button class="slide-btn slide-prev" onclick="moveSlider(-1)">❮</button>
         <button class="slide-btn slide-next" onclick="moveSlider(1)">❯</button>
         <div class="slider-track" id="sliderTrack">
-            <!-- Slide 1 -->
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com');">
+            <div class="slide" style="background-image: linear-gradient(rgba(3,3,6,0.75), rgba(3,3,6,0.75)), url('https://unsplash.com');">
                 <h2>Featured: Baldi's Basics</h2>
                 <p>Test your problem-solving capabilities under severe classroom pressure parameters.</p>
             </div>
-            <!-- Slide 2 -->
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com');">
-                <h2>Trending: Slope 3D</h2>
-                <p>Compete for the highest structural tracking distance down a fast shifting vector platform line.</p>
-            </div>
-            <!-- Slide 3 -->
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com');">
-                <h2>Active: 1v1.LOL</h2>
-                <p>Master defensive mechanics and refine coordinate tracking targeting systems safely layout.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Grid Directory -->
-    <div class="grid">
-        <div class="card" onclick="openGame('Baldi\'s Basics', 'https://itch.io')">
-            <div class="card-banner">📐</div>
-            <div class="card-info">
-                <h2 class="card-title">Baldi's Basics</h2>
-                <p class="card-desc">Find all 7 notebooks and try to escape the school classroom.</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="openGame('Slope 3D', 'https://github.io')">
-            <div class="card-banner">🟢</div>
-            <div class="card-info">
-                <h2 class="card-title">Slope 3D</h2>
-                <p class="card-desc">Keep rolling down the high-speed pathway. Don't touch the red blocks.</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="openGame('1v1.LOL', 'https://1v1.lol')">
-            <div class="card-banner">🔫</div>
-            <div class="card-info">
-                <h2 class="card-title">1v1.LOL</h2>
-                <p class="card-desc">Build defensive layouts and practice tracking target mechanics.</p>
-            </div>
-        </div>
-    </div>
-
